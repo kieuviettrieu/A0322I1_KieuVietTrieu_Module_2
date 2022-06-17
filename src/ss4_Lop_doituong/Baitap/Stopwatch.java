@@ -37,8 +37,8 @@ public class Stopwatch {
 
     public long getElapsedTime()
     {
-        long time1=((startTime.getMinutes())*60+startTime.getSeconds())*1000;
-        long time2=((endTime.getMinutes())*60+endTime.getSeconds())*1000;
+        long time1=((startTime.getHours()*60+startTime.getMinutes())*60+startTime.getSeconds())*1000;
+        long time2=((endTime.getHours()*60+endTime.getMinutes())*60+endTime.getSeconds())*1000;
         return time2-time1;
     }
 }
