@@ -186,5 +186,4 @@ public class MyLinkedList<E>{
             element = e;
         }
     }
-
 }
