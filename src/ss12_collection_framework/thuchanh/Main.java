@@ -1,0 +1,31 @@
+package ss12_collection_framework.thuchanh;
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Student2 student1 = new Student2("Nam",20, "HN");
+        Student2 student2 = new Student2("Hung",21, "HN");
+        Student2 student3 = new Student2("Ha",22, "HN");
+        // write your code here
+        Map<Integer, Student2> studentMap = new HashMap<Integer, Student2>();
+        studentMap.put(1,student1);
+        studentMap.put(2,student2);
+        studentMap.put(3,student3);
+        studentMap.put(4,student1);
+
+        for(Map.Entry<Integer, Student2> student : studentMap.entrySet()){
+            System.out.println(student.toString());
+        }
+        System.out.println("...........Set");
+        Set<Student2> students = new HashSet<Student2>();
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+        students.add(student1);
+
+        for(Student2 student : students){
+            System.out.println(student.toString());
+        }
+    }
+}
