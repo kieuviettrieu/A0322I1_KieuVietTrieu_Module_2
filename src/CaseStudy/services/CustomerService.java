@@ -1,4 +1,5 @@
 package CaseStudy.services;
 
-public interface CustomerService {
+public interface CustomerService extends Service{
+    void editCustomer();
 }

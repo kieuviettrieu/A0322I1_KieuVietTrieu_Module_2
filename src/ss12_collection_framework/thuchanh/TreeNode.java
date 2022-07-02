@@ -1,5 +1,11 @@
 package ss12_collection_framework.thuchanh;
 
-public class Optional_caynhiphan {
-    
+public class TreeNode<E> {
+    public E element;
+    public TreeNode<E> left;
+    public TreeNode<E> right;
+
+    public TreeNode(E e) {
+        element = e;
+    }
 }

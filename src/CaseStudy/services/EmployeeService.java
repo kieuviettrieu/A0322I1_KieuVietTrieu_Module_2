@@ -1,4 +1,5 @@
 package CaseStudy.services;
 
-public interface EmployeeService {
+public interface EmployeeService extends Service{
+    void editEmployee();
 }

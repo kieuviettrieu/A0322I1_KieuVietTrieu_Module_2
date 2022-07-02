@@ -1,4 +1,6 @@
 package CaseStudy.services;
 
-public class ContactService {
+public interface ContactService{
+    void disPlayUseService();
+    void disPlayGetVoucher();
 }

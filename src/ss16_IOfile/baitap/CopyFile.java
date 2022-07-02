@@ -1,4 +1,4 @@
-package ss16_IOfile.thuchanh;
+package ss16_IOfile.baitap;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ public class CopyFile {
     public static void main(String[] args) {
         CopyFile copyFile=new CopyFile();
         copyFile.copyFile("D:\\Codegym\\module2\\src\\ss16_IOfile\\thuchanh\\text.txt",
-                "D:\\Codegym\\module2\\src\\ss16_IOfile\\thuchanh\\copytext.txt");
+                "D:\\Codegym\\module2\\src\\ss16_IOfile\\baitap\\copytext.txt");
     }
 
     private ArrayList<String> readFileText(String filePath) {
