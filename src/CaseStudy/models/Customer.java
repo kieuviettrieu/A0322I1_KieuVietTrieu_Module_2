@@ -1,10 +1,8 @@
 package CaseStudy.models;
 
-import CaseStudy.services.CustomerService;
-
 import java.util.Date;
 
-public class Customer extends Person implements CustomerService {
+public class Customer extends Person implements Comparable<Customer>{
     private int maKhachHang;
     private String loaiKhach;
     private String diaChi;
@@ -18,7 +16,7 @@ public class Customer extends Person implements CustomerService {
         this.diaChi = diaChi;
     }
 
-    public Customer(String hoTen, Date ngaysinh, String gioiTinh, String soDienThoai, String email, String soCCCD, int maKhachHang, String loaiKhach, String diaChi) {
+    public Customer(int maKhachHang,String hoTen, Date ngaysinh, String gioiTinh, String soDienThoai, String email, String soCCCD, String loaiKhach, String diaChi) {
         super(hoTen, ngaysinh, gioiTinh, soDienThoai, email, soCCCD);
         this.maKhachHang = maKhachHang;
         this.loaiKhach = loaiKhach;
@@ -49,33 +47,23 @@ public class Customer extends Person implements CustomerService {
         this.diaChi = diaChi;
     }
 
+
     @Override
     public String toString() {
-        return "Customer{" +
-                "maKhachHang=" + maKhachHang +
-                ", loaiKhach='" + loaiKhach + '\'' +
-                ", diaChi='" + diaChi + '\'' +
-                ", hoTen='" + hoTen + '\'' +
-                ", ngaysinh=" + ngaysinh +
-                ", gioiTinh='" + gioiTinh + '\'' +
-                ", soDienThoai='" + soDienThoai + '\'' +
-                ", email='" + email + '\'' +
-                ", soCCCD='" + soCCCD + '\'' +
-                '}';
+        return "ID:" + maKhachHang +
+                ", Type:" + loaiKhach +
+                ", Address:" + diaChi +
+                ", FullName" + hoTen +
+                ", Birthday" + ngaysinh +
+                ", Set" + gioiTinh +
+                ", PhoneNumber" + soDienThoai +
+                ", Email:" + email +
+                ", CCCD:" + soCCCD ;
     }
 
-    @Override
-    public void editCustomer() {
-
-    }
 
     @Override
-    public void addNew() {
-
-    }
-
-    @Override
-    public void disPlay() {
-
+    public int compareTo(Customer o) {
+        return this.hoTen.compareTo(o.getHoTen());
     }
 }

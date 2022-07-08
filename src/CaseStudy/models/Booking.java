@@ -1,25 +1,25 @@
 package CaseStudy.models;
 
-import CaseStudy.services.BookingService;
-
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Booking implements BookingService {
+public class Booking implements Comparable<Booking>{
+    private SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MM-yyyy");
     private int maBooking;
     private Date firstDate;
     private Date lastDate;
-    private int maKhachHanh;
+    private int maKhachHang;
     private String tenDichVu;
-    private String loaiDichVu;
+    private int loaiDichVu;
 
     public Booking() {
     }
 
-    public Booking(int maBooking, Date firstDate, Date lastDate, int maKhachHanh, String tenDichVu, String loaiDichVu) {
+    public Booking(int maBooking, Date firstDate, Date lastDate, int maKhachHanh, String tenDichVu, int loaiDichVu) {
         this.maBooking = maBooking;
         this.firstDate = firstDate;
         this.lastDate = lastDate;
-        this.maKhachHanh = maKhachHanh;
+        this.maKhachHang = maKhachHanh;
         this.tenDichVu = tenDichVu;
         this.loaiDichVu = loaiDichVu;
     }
@@ -48,12 +48,12 @@ public class Booking implements BookingService {
         this.lastDate = lastDate;
     }
 
-    public int getMaKhachHanh() {
-        return maKhachHanh;
+    public int getMaKhachHang() {
+        return maKhachHang;
     }
 
-    public void setMaKhachHanh(int maKhachHanh) {
-        this.maKhachHanh = maKhachHanh;
+    public void setMaKhachHang(int maKhachHang) {
+        this.maKhachHang = maKhachHang;
     }
 
     public String getTenDichVu() {
@@ -64,11 +64,11 @@ public class Booking implements BookingService {
         this.tenDichVu = tenDichVu;
     }
 
-    public String getLoaiDichVu() {
+    public int getLoaiDichVu() {
         return loaiDichVu;
     }
 
-    public void setLoaiDichVu(String loaiDichVu) {
+    public void setLoaiDichVu(int loaiDichVu) {
         this.loaiDichVu = loaiDichVu;
     }
 
@@ -76,36 +76,16 @@ public class Booking implements BookingService {
     public String toString() {
         return "Booking{" +
                 "maBooking=" + maBooking +
-                ", firstDate=" + firstDate +
-                ", lastDate=" + lastDate +
-                ", maKhachHanh=" + maKhachHanh +
+                ", firstDate=" + simpleDateFormat.format(firstDate) +
+                ", lastDate=" + simpleDateFormat.format(lastDate) +
+                ", maKhachHanh=" + maKhachHang +
                 ", tenDichVu='" + tenDichVu + '\'' +
                 ", loaiDichVu='" + loaiDichVu + '\'' +
                 '}';
     }
 
     @Override
-    public void createNewConstracts() {
-
-    }
-
-    @Override
-    public void disPlayContracts() {
-
-    }
-
-    @Override
-    public void editConstract() {
-
-    }
-
-    @Override
-    public void addNew() {
-
-    }
-
-    @Override
-    public void disPlay() {
-
+    public int compareTo(Booking o) {
+        return this.getFirstDate().compareTo(o.getFirstDate());
     }
 }

@@ -47,18 +47,5 @@ public class House extends Facility{
                 '}';
     }
 
-    @Override
-    public void disPlayFMaintenance() {
 
-    }
-
-    @Override
-    public void addNew() {
-
-    }
-
-    @Override
-    public void disPlay() {
-
-    }
 }

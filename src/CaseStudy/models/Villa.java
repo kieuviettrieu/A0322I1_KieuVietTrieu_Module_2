@@ -59,18 +59,4 @@ public class Villa extends Facility{
                 '}';
     }
 
-    @Override
-    public void disPlayFMaintenance() {
-
-    }
-
-    @Override
-    public void addNew() {
-
-    }
-
-    @Override
-    public void disPlay() {
-
-    }
 }

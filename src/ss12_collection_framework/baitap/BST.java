@@ -89,6 +89,18 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
         preorder(root.right);
     }
 
+    private void NodeTheMang(TreeNode<E> X, TreeNode<E> Y)
+    {
+        if (Y.left != null) {
+            NodeTheMang(X, Y.left);// tìm ra node trái nhất ?
+        } else // tìm ra được node trái nhất rồi nek..
+        {
+            X.element = Y.element; // cập nhật cái data của node cần xóa chính là data của node thế mạng
+            X = Y; // cho node X(là node mà chúng ta sẽ đi xóa sau này) trỏ đến node thế mạng ==> ra khỏi hàm thì ta sẽ xóa node X
+            Y = Y.right; // bản chất chỗ này chính là cập nhật lại mối liên kết cho node cha của node thế mạng(mà chúng ta sẽ xóa) với node con của node thế mạng
+        }
+    }
+
     public boolean delete(E e)
     {
         return delete(e,root);
@@ -111,7 +123,19 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
                     else
                     {
                         TreeNode<E> node=root;
-
+                        if(root.left==null)
+                        {
+                            root=root.right;
+                        }
+                        else
+                            if(root.right==null)
+                            {
+                                root=root.left;
+                            }
+                            else
+                            {
+                                NodeTheMang(node, root.right);
+                            }
                     }
                     return true;
     }

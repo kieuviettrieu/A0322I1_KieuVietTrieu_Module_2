@@ -1,10 +1,8 @@
 package CaseStudy.models;
 
-import CaseStudy.services.EmployeeService;
-
 import java.util.Date;
 
-public class Employee extends Person implements EmployeeService {
+public class Employee extends Person implements Comparable<Employee>{
     private int maNhanVien;
     private String trinhDo;
     private String viTri;
@@ -62,32 +60,21 @@ public class Employee extends Person implements EmployeeService {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "maNhanVien=" + maNhanVien +
-                ", trinhDo='" + trinhDo + '\'' +
-                ", viTri='" + viTri + '\'' +
-                ", luong=" + luong +
-                ", hoTen='" + hoTen + '\'' +
-                ", ngaysinh=" + ngaysinh +
-                ", gioiTinh='" + gioiTinh + '\'' +
-                ", soDienThoai='" + soDienThoai + '\'' +
-                ", email='" + email + '\'' +
-                ", soCCCD='" + soCCCD + '\'' +
-                '}';
+        return "ID:" + maNhanVien +
+                ", Level:" + trinhDo +
+                ", Location:" + viTri+
+                ", Wage:" + luong +
+                ", Fullname:" + hoTen +
+                ", Birthday:" + ngaysinh +
+                ", Set:" + gioiTinh +
+                ", PhoneNumber:" + soDienThoai +
+                ", Email" + email +
+                ", CCCD:" + soCCCD ;
     }
 
-    @Override
-    public void editEmployee() {
-
-    }
 
     @Override
-    public void addNew() {
-
-    }
-
-    @Override
-    public void disPlay() {
-
+    public int compareTo(Employee o) {
+        return this.hoTen.compareTo(o.getHoTen());
     }
 }

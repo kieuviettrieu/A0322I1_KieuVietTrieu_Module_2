@@ -2,7 +2,7 @@ package CaseStudy.models;
 
 import java.util.Date;
 
-public abstract class Person {
+public abstract class Person{
     protected String hoTen;
     protected Date ngaysinh;
     protected String gioiTinh;

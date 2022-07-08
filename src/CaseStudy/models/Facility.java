@@ -1,8 +1,8 @@
 package CaseStudy.models;
 
-import CaseStudy.services.FacilityService;
-
-public abstract class Facility implements FacilityService {
+public abstract class Facility {
+    protected static int id=1000;
+    protected int idDichVu;
     protected String tenDichVu;
     protected double dienTichSuDung;
     protected int chiPhiThue;
@@ -18,6 +18,7 @@ public abstract class Facility implements FacilityService {
         this.chiPhiThue = chiPhiThue;
         this.soNguoiToiDa = soNguoiToiDa;
         this.kieuThue = kieuThue;
+        idDichVu=++id;
     }
 
     public String getTenDichVu() {
@@ -58,5 +59,13 @@ public abstract class Facility implements FacilityService {
 
     public void setKieuThue(String kieuThue) {
         this.kieuThue = kieuThue;
+    }
+
+    public static int getId() {
+        return id;
+    }
+
+    public static void setId(int id) {
+        Facility.id = id;
     }
 }

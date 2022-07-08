@@ -1,8 +1,8 @@
 package CaseStudy.models;
 
-import CaseStudy.services.ContactService;
+import java.util.Comparator;
 
-public class Contract implements ContactService {
+public class Contract {
     private int soHopDong;
     private int maBooking;
     private double tienCoc;
@@ -71,13 +71,4 @@ public class Contract implements ContactService {
                 '}';
     }
 
-    @Override
-    public void disPlayUseService() {
-
-    }
-
-    @Override
-    public void disPlayGetVoucher() {
-
-    }
 }
