@@ -1,25 +1,25 @@
 package CaseStudy.models;
 
-import java.text.SimpleDateFormat;
+import CaseStudy.services.exception.DateException;
+
 import java.util.Date;
 
 public class Booking implements Comparable<Booking>{
-    private SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MM-yyyy");
     private int maBooking;
     private Date firstDate;
     private Date lastDate;
     private int maKhachHang;
     private String tenDichVu;
-    private int loaiDichVu;
+    private String loaiDichVu;
 
     public Booking() {
     }
 
-    public Booking(int maBooking, Date firstDate, Date lastDate, int maKhachHanh, String tenDichVu, int loaiDichVu) {
+    public Booking(int maBooking, Date firstDate, Date lastDate, int maKhachHang, String tenDichVu, String loaiDichVu) {
         this.maBooking = maBooking;
         this.firstDate = firstDate;
         this.lastDate = lastDate;
-        this.maKhachHang = maKhachHanh;
+        this.maKhachHang = maKhachHang;
         this.tenDichVu = tenDichVu;
         this.loaiDichVu = loaiDichVu;
     }
@@ -64,24 +64,37 @@ public class Booking implements Comparable<Booking>{
         this.tenDichVu = tenDichVu;
     }
 
-    public int getLoaiDichVu() {
+    public String getLoaiDichVu() {
         return loaiDichVu;
     }
 
-    public void setLoaiDichVu(int loaiDichVu) {
+    public void setLoaiDichVu(String loaiDichVu) {
         this.loaiDichVu = loaiDichVu;
+    }
+
+    public String getDay()
+    {
+        return DateException.simpleDateFormatDay.format(firstDate);
+    }
+
+    public String getMonth()
+    {
+        return DateException.simpleDateFormatMonth.format(firstDate);
+    }
+
+    public String getYear()
+    {
+        return DateException.simpleDateFormatYear.format(firstDate);
     }
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "maBooking=" + maBooking +
-                ", firstDate=" + simpleDateFormat.format(firstDate) +
-                ", lastDate=" + simpleDateFormat.format(lastDate) +
-                ", maKhachHanh=" + maKhachHang +
-                ", tenDichVu='" + tenDichVu + '\'' +
-                ", loaiDichVu='" + loaiDichVu + '\'' +
-                '}';
+        return  maBooking +
+                ";" + DateException.simpleDateFormat.format(firstDate) +
+                ";" + DateException.simpleDateFormat.format(lastDate) +
+                ";" + maKhachHang +
+                ";" + tenDichVu +
+                ";" + loaiDichVu;
     }
 
     @Override

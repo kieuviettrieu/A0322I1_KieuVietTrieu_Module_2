@@ -1,8 +1,10 @@
 package CaseStudy.models;
 
+import CaseStudy.services.exception.DateException;
+
 import java.util.Date;
 
-public class Employee extends Person implements Comparable<Employee>{
+public class Employee extends Person{
     private int maNhanVien;
     private String trinhDo;
     private String viTri;
@@ -58,23 +60,32 @@ public class Employee extends Person implements Comparable<Employee>{
         this.luong = luong;
     }
 
+//    @Override
+//    public String toString() {
+//        return "ID:" + maNhanVien +
+//                ", Level:" + trinhDo +
+//                ", Location:" + viTri+
+//                ", Wage:" + luong +
+//                ", Fullname:" + hoTen +
+//                ", Birthday:" + simpleDateFormat.format(ngaysinh) +
+//                ", Set:" + gioiTinh +
+//                ", PhoneNumber:" + soDienThoai +
+//                ", Email" + email +
+//                ", CCCD:" + soCCCD ;
+//    }
+
+
     @Override
     public String toString() {
-        return "ID:" + maNhanVien +
-                ", Level:" + trinhDo +
-                ", Location:" + viTri+
-                ", Wage:" + luong +
-                ", Fullname:" + hoTen +
-                ", Birthday:" + ngaysinh +
-                ", Set:" + gioiTinh +
-                ", PhoneNumber:" + soDienThoai +
-                ", Email" + email +
-                ", CCCD:" + soCCCD ;
-    }
-
-
-    @Override
-    public int compareTo(Employee o) {
-        return this.hoTen.compareTo(o.getHoTen());
+        return  maNhanVien +
+                ";" + trinhDo +
+                ";" + viTri +
+                ";" + luong +
+                ";" + hoTen +
+                ";" + DateException.simpleDateFormat.format(ngaysinh) +
+                ";" + gioiTinh +
+                ";" + soDienThoai +
+                ";" + email +
+                ";" + soCCCD;
     }
 }

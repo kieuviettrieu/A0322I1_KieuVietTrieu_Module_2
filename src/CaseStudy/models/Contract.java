@@ -1,8 +1,11 @@
 package CaseStudy.models;
 
-import java.util.Comparator;
+import CaseStudy.services.Impl.BookingServiceImpl;
 
-public class Contract {
+import java.util.Comparator;
+import java.util.Date;
+
+public class Contract implements Comparable<Contract>{
     private int soHopDong;
     private int maBooking;
     private double tienCoc;
@@ -62,13 +65,18 @@ public class Contract {
 
     @Override
     public String toString() {
-        return "Contract{" +
-                "soHopDong=" + soHopDong +
-                ", maBooking=" + maBooking +
-                ", tienCoc=" + tienCoc +
-                ", tienThanhToan=" + tienThanhToan +
-                ", maKhachHang=" + maKhachHang +
-                '}';
+        return  soHopDong +
+                ";" + maBooking +
+                ";" + tienCoc +
+                ";" + tienThanhToan +
+                ";" + maKhachHang;
     }
 
+    @Override
+    public int compareTo(Contract o) {
+        int maBook=o.getMaBooking();
+        Date date=BookingServiceImpl.searchBooking(maBook).getFirstDate();
+        Date date1=BookingServiceImpl.searchBooking(maBooking).getFirstDate();
+        return date1.compareTo(date);
+    }
 }

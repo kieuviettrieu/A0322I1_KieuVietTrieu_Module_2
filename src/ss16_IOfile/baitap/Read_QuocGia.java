@@ -14,6 +14,7 @@ public class Read_QuocGia {
         {
             System.out.println(quocGia.toString());
         }
+
     }
 
     public static ArrayList<QuocGia> readFile(String filePath){

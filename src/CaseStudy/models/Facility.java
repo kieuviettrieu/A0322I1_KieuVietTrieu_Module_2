@@ -2,7 +2,7 @@ package CaseStudy.models;
 
 public abstract class Facility {
     protected static int id=1000;
-    protected int idDichVu;
+    protected String idDichVu;
     protected String tenDichVu;
     protected double dienTichSuDung;
     protected int chiPhiThue;
@@ -18,7 +18,22 @@ public abstract class Facility {
         this.chiPhiThue = chiPhiThue;
         this.soNguoiToiDa = soNguoiToiDa;
         this.kieuThue = kieuThue;
-        idDichVu=++id;
+        String maHoa="SV";
+        if(tenDichVu.equalsIgnoreCase("Villa")) maHoa+="VL";
+        else
+        if(tenDichVu.equalsIgnoreCase("Room")) maHoa+="RO";
+        else
+        if(tenDichVu.equalsIgnoreCase("House")) maHoa+="HO";
+        idDichVu=maHoa+"-"+(++id);
+    }
+
+    public Facility(String idDichVu, String tenDichVu, double dienTichSuDung, int chiPhiThue, int soNguoiToiDa, String kieuThue) {
+        this.idDichVu = idDichVu;
+        this.tenDichVu = tenDichVu;
+        this.dienTichSuDung = dienTichSuDung;
+        this.chiPhiThue = chiPhiThue;
+        this.soNguoiToiDa = soNguoiToiDa;
+        this.kieuThue = kieuThue;
     }
 
     public String getTenDichVu() {
@@ -67,5 +82,13 @@ public abstract class Facility {
 
     public static void setId(int id) {
         Facility.id = id;
+    }
+
+    public String getIdDichVu() {
+        return idDichVu;
+    }
+
+    public void setIdDichVu(String idDichVu) {
+        this.idDichVu = idDichVu;
     }
 }

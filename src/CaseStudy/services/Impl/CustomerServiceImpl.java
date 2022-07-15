@@ -2,67 +2,117 @@ package CaseStudy.services.Impl;
 
 import CaseStudy.models.Customer;
 import CaseStudy.services.Interface.CustomerService;
+import CaseStudy.services.exception.DateException;
+import CaseStudy.services.exception.MatchesCheck;
+import CaseStudy.services.exception.WriteReadFile;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.text.ParseException;
+import java.util.*;
 
 public class CustomerServiceImpl implements CustomerService {
     private static Scanner scanner=new Scanner(System.in);
-    private static LinkedList<Customer> arrayCustomer=new LinkedList<>();
+    private static List<Customer> arrayCustomer=new LinkedList<>();
     private static final String[] arrayType={null,"Diamond","Platinium","Gold","Silver","Member"};
+    private static final String[] arraySet={"Khác","Nam","Nữ"};
 
 
     @Override
     public void editCustomer() {
-        if(arrayCustomer.size()==0)
-        {
-            System.out.println("Employee list is empty!");
-            return;
-        }
-        System.out.println("Enter employee code: ");
-        System.out.print("ID: ");
-        int id=Integer.parseInt(scanner.nextLine());
-        int index=indexCustomer(id);
-        if(index!=-1)
-        {
-            System.out.println(arrayCustomer.get(index).toString());
-            System.out.println("Edit information:");
-            System.out.print("Full name: ");
-            String fullname=scanner.nextLine();
-            System.out.print("Birth day: ");
-            String birthday=scanner.nextLine();
-            System.out.print("Set: ");
-            String set=scanner.nextLine();
-            System.out.println("Type: 1.Diamond  2.Platinium  3.Gold  4.Silver  5.Member");
-            int indexType;
-            do {
-                System.out.print("Choose your type: ");
-                indexType=Integer.parseInt(scanner.nextLine());
-                if(indexType<=5 && indexType>=1)
+        try{
+            if(arrayCustomer.size()==0)
+            {
+                System.out.println("Employee list is empty!");
+                return;
+            }
+            disPlay();
+            System.out.println();
+            System.out.print("Edit Customer ID: ");
+            int id=Integer.parseInt(scanner.nextLine());
+            int index=indexCustomer(id);
+            if(index!=-1)
+            {
+                System.out.println(arrayCustomer.get(index).toString());
+                System.out.println("Edit information:");
+                System.out.print("Full name: ");
+                String fullname=scanner.nextLine();
+                Date birthDay=null;
+                while (true)
                 {
-                    break;
+                    System.out.print("Birthday: ");
+                    String birthDayStr=scanner.nextLine();
+                    if(MatchesCheck.checkDate(birthDayStr))
+                    {
+                        try {
+                            birthDay=DateException.simpleDateFormat.parse(birthDayStr);
+                            if(!(DateException.checkAge18(birthDay) && !DateException.checkAge100(birthDay)))
+                            {
+                                System.out.println("Age>=18 and Age<=100");
+                                continue;
+                            }
+                        } catch (ParseException e) {
+                            System.out.println("Errol BirthDay!");
+                        }
+                        break;
+                    }
+                    System.out.println("Format: dd-MM-yyyy");
                 }
-                else
+                String set;
+                while (true)
                 {
+                    System.out.println("Set: 0.Khác  1.Nam  2.Nữ");
+                    System.out.print("Choose: ");
+                    String indexSet=scanner.nextLine();
+                    if(MatchesCheck.checkOneNumber(indexSet))
+                    {
+                        int inde=Integer.parseInt(indexSet);
+                        if(inde>=0 && inde<=2)
+                        {
+                            set=arraySet[inde];
+                            break;
+                        }
+                        System.out.println("Please choose again!");
+                    }
+                }
+                System.out.println("Type: 1.Diamond  2.Platinium  3.Gold  4.Silver  5.Member");
+                int indexType;
+                while (true) {
+                    System.out.print("Choose your type: ");
+                    String indexTypeStr = scanner.nextLine();
+                    if (MatchesCheck.checkOneNumber(indexTypeStr))
+                    {
+                        indexType=Integer.parseInt(indexTypeStr);
+                        if(indexType>=1 && indexType<=5)
+                            break;
+                    }
                     System.out.println("Please re-enter room!");
                 }
-            }while (true);
-            String loaiKhach=arrayType[indexType];
-            System.out.println("Address: ");
-            String address=scanner.nextLine();
-            System.out.print("Phone number: ");
-            String phonenumber=scanner.nextLine();
-            System.out.print("Email: ");
-            String email=scanner.nextLine();
-            System.out.print("CCCD: ");
-            String cccd=scanner.nextLine();
-            arrayCustomer.set(index,new Customer(id,fullname,new Date(birthday),set,phonenumber,email,cccd,loaiKhach,address));
-            System.out.println("Update successful!");
-        }
-        else {
-            System.out.println("This customer code does not exist!");
+
+                String loaiKhach=arrayType[indexType];
+                System.out.print("Address: ");
+                String address=scanner.nextLine();
+                System.out.print("Phone number: ");
+                String phonenumber=scanner.nextLine();
+                String email;
+                while (true)
+                {
+                    System.out.print("Email: ");
+                    email=scanner.nextLine();
+                    if(MatchesCheck.checkEmail(email))
+                        break;
+                    System.out.println("Email form: *.@gmail.com");
+                }
+                System.out.print("CCCD: ");
+                String cccd=scanner.nextLine();
+                arrayCustomer.set(index,new Customer(id,fullname,birthDay,set,phonenumber,email,cccd,loaiKhach,address));
+                WriteReadFile.writeToFile("customer.cvs",arrayCustomer);
+                System.out.println("Update successful!");
+            }
+            else {
+                System.out.println("This customer code does not exist!");
+            }
+        }catch (Exception e)
+        {
+            System.out.println("Input data is wrong!");
         }
     }
 
@@ -80,17 +130,35 @@ public class CustomerServiceImpl implements CustomerService {
         return index;
     }
 
+    public Customer getCustomer(int id)
+    {
+        int index=indexCustomer(id);
+        if(index!=-1)
+        {
+            return arrayCustomer.get(index);
+        }
+        return null;
+    }
+
     @Override
     public void addNew(Customer customer) {
         if(customer!=null)
         {
             arrayCustomer.add(customer);
+            VoucherServices.addToVoucher(customer.getMaKhachHang());
             System.out.println("More success!");
         }
         else
         {
             System.out.println("Unsuccessful!");
         }
+        Collections.sort(arrayCustomer, new Comparator<Customer>() {
+            @Override
+            public int compare(Customer o1, Customer o2) {
+                return o1.getHoTen().compareTo(o2.getHoTen());
+            }
+        });
+        WriteReadFile.writeToFile("customer.cvs",arrayCustomer);
     }
 
     @Override
@@ -112,42 +180,105 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer returnCustomer()
     {
         System.out.println("Enter information: ");
-        System.out.print("ID: ");
-        int id=Integer.parseInt(scanner.nextLine());
+        String idStr;
+        while (true)
+        {
+            System.out.print("ID: ");
+            idStr=scanner.nextLine();
+            if(MatchesCheck.checkId(idStr))
+                break;
+            System.out.println("Format ID: 1xxx");
+        }
+        int id=Integer.parseInt(idStr);
         System.out.print("Full name: ");
         String fullname=scanner.nextLine();
-        System.out.print("Birth day: ");
-        String birthday=scanner.nextLine();
-        System.out.print("Set: ");
-        String set=scanner.nextLine();
-        System.out.println("Type: 1.Diamond  2.Platinium  3.Gold  4.Silver  5.Member");
-        int indexType;
-        do {
-            System.out.print("Choose your type: ");
-            indexType=Integer.parseInt(scanner.nextLine());
-            if(indexType<=5 && indexType>=1)
+        Date birthDay=null;
+        while (true)
+        {
+            System.out.print("Birthday: ");
+            String birthDayStr=scanner.nextLine();
+            if(MatchesCheck.checkDate(birthDayStr))
             {
+                try {
+                    birthDay=DateException.simpleDateFormat.parse(birthDayStr);
+                    if(!(DateException.checkAge18(birthDay) && !DateException.checkAge100(birthDay)))
+                    {
+                        System.out.println("Age>=18 and Age<=100");
+                        continue;
+                    }
+                } catch (ParseException e) {
+                    System.out.println("Errol BirthDay!");
+                }
                 break;
             }
-            else
+            System.out.println("Format: dd-MM-yyyy");
+        }
+        String set;
+        while (true)
+        {
+            System.out.println("Set: 0.Khác  1.Nam  2.Nữ");
+            System.out.print("Choose: ");
+            String indexSet=scanner.nextLine();
+            if(MatchesCheck.checkOneNumber(indexSet))
             {
-                System.out.println("Please re-enter room!");
+                int index=Integer.parseInt(indexSet);
+                if(index>=0 && index<=2)
+                {
+                    set=arraySet[index];
+                    break;
+                }
+                System.out.println("Please choose again!");
             }
-        }while (true);
+        }
+        System.out.println("Type: 1.Diamond  2.Platinium  3.Gold  4.Silver  5.Member");
+        int indexType;
+        while (true) {
+            System.out.print("Choose your type: ");
+            String indexTypeStr = scanner.nextLine();
+            if (MatchesCheck.checkOneNumber(indexTypeStr))
+            {
+                indexType=Integer.parseInt(indexTypeStr);
+                if(indexType>=1 && indexType<=5)
+                    break;
+            }
+                System.out.println("Please re-enter room!");
+        }
+
         String loaiKhach=arrayType[indexType];
-        System.out.println("Address: ");
+        System.out.print("Address: ");
         String address=scanner.nextLine();
         System.out.print("Phone number: ");
         String phonenumber=scanner.nextLine();
-        System.out.print("Email: ");
-        String email=scanner.nextLine();
+        String email;
+        while (true)
+        {
+            System.out.print("Email: ");
+            email=scanner.nextLine();
+            if(MatchesCheck.checkEmail(email))
+                break;
+            System.out.println("Email form: *.@gmail.com");
+        }
         System.out.print("CCCD: ");
         String cccd=scanner.nextLine();
-        return new Customer(id,fullname,new Date(birthday),set,phonenumber,email,cccd,loaiKhach,address);
+        return new Customer(id,fullname,birthDay,set,phonenumber,email,cccd,loaiKhach,address);
+    }
+
+    public static int getSize()
+    {
+        return arrayCustomer.size();
     }
 
     public static boolean isEmpty()
     {
         return arrayCustomer.isEmpty();
+    }
+    public static void setArrayCustomer(List<Customer> list)
+    {
+        arrayCustomer=list;
+    }
+
+    public static void readArrayCostomer(String path)
+    {
+        WriteReadFile.readDataFromFileCus(path,arrayCustomer);
     }
 }

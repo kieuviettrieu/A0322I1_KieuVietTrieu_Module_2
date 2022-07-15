@@ -1,8 +1,10 @@
 package CaseStudy.models;
 
+import CaseStudy.services.exception.DateException;
+
 import java.util.Date;
 
-public class Customer extends Person implements Comparable<Customer>{
+public class Customer extends Person{
     private int maKhachHang;
     private String loaiKhach;
     private String diaChi;
@@ -50,20 +52,27 @@ public class Customer extends Person implements Comparable<Customer>{
 
     @Override
     public String toString() {
-        return "ID:" + maKhachHang +
-                ", Type:" + loaiKhach +
-                ", Address:" + diaChi +
-                ", FullName" + hoTen +
-                ", Birthday" + ngaysinh +
-                ", Set" + gioiTinh +
-                ", PhoneNumber" + soDienThoai +
-                ", Email:" + email +
-                ", CCCD:" + soCCCD ;
+        return maKhachHang +
+                ";" + loaiKhach +
+                ";" + diaChi +
+                ";" + hoTen +
+                ";" + DateException.simpleDateFormat.format(ngaysinh) +
+                ";" + gioiTinh +
+                ";" + soDienThoai +
+                ";" + email +
+                ";" + soCCCD;
     }
 
-
-    @Override
-    public int compareTo(Customer o) {
-        return this.hoTen.compareTo(o.getHoTen());
+    public String toInfomation()
+    {
+        return  "maKhachHang:" + maKhachHang +
+                ", loaiKhach:" + loaiKhach +
+                ", diaChi:" + diaChi  +
+                ", hoTen:" + hoTen +
+                ", ngaysinh:" + ngaysinh +
+                ", gioiTinh:" + gioiTinh +
+                ", soDienThoai:" + soDienThoai +
+                ", email:" + email +
+                ", soCCCD:" + soCCCD ;
     }
 }
