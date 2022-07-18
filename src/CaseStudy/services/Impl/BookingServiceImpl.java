@@ -2,11 +2,11 @@ package CaseStudy.services.Impl;
 
 import CaseStudy.models.Booking;
 import CaseStudy.models.Contract;
-import CaseStudy.models.Facility;
+import CaseStudy.models.facitily.Facility;
 import CaseStudy.services.Interface.BookingService;
-import CaseStudy.services.exception.DateException;
-import CaseStudy.services.exception.MatchesCheck;
-import CaseStudy.services.exception.WriteReadFile;
+import CaseStudy.utils.DateException;
+import CaseStudy.utils.MatchesCheck;
+import CaseStudy.utils.WriteReadFile;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -26,7 +26,7 @@ public class BookingServiceImpl implements BookingService {
         {
             arrayBooking.add(booking);
             FacilityServiceImpl.increaseValue(FacilityServiceImpl.searchFacility(booking.getLoaiDichVu()));
-            WriteReadFile.writeToBooking("booking.cvs",arrayBooking);
+            WriteReadFile.writeToBooking("D:\\Codegym\\module2\\src\\CaseStudy\\data\\booking.cvs",arrayBooking);
             System.out.println("More success!");
         }
         else
@@ -41,7 +41,7 @@ public class BookingServiceImpl implements BookingService {
         {
             System.out.println("Contract created: "+contract);
             arrayContract.add(contract);
-            WriteReadFile.writeToContract("contract.cvs",arrayContract);
+            WriteReadFile.writeToContract("D:\\Codegym\\module2\\src\\CaseStudy\\data\\contract.cvs",arrayContract);
             System.out.println("More success!");
         }
         else
@@ -72,7 +72,13 @@ public class BookingServiceImpl implements BookingService {
             if (arrayContract.size() == 0) {
                 System.out.println("No contract yet!");
                 return;
-            } else {
+            } else
+                if(arrayContract.size()==arrayBooking.size())
+                {
+                    System.out.println("There are no new profiles to edit!");
+                }
+                else
+                {
                 Contract contract;
                 int soHopDong;
                 disPlayContracts();
@@ -97,7 +103,10 @@ public class BookingServiceImpl implements BookingService {
                     idBooking = Integer.parseInt(idBookingStr);
                     booking = searchBooking(idBooking);
                     if (booking != null) {
-                        break;
+                        if(checkIDContract(idBooking))
+                            break;
+                        else
+                            System.out.println("This profile has been created!");
                     } else {
                         System.out.println("This booking code could not be found!");
                     }
@@ -108,7 +117,7 @@ public class BookingServiceImpl implements BookingService {
                 Contract contractNew = new Contract(soHopDong, idBooking, tienCoc, tongThanhToan, booking.getMaKhachHang());
                 arrayContract.remove(contract);
                 arrayContract.add(contractNew);
-                WriteReadFile.writeToContract("contract.cvs", arrayContract);
+                WriteReadFile.writeToContract("D:\\Codegym\\module2\\src\\CaseStudy\\data\\contract.cvs", arrayContract);
                 System.out.println("Update successful!");
             }
         }catch (Exception e)

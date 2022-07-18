@@ -1,6 +1,8 @@
-package CaseStudy.models;
+package CaseStudy.models.facitily;
 
-public class Villa extends Facility{
+import CaseStudy.models.facitily.Facility;
+
+public class Villa extends Facility {
     private String tieuChuanPhong;
     private double dienTichHoBoi;
     private int soTang;

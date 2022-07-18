@@ -1,11 +1,10 @@
 package CaseStudy.services.Impl;
 
-import CaseStudy.models.Customer;
-import CaseStudy.services.exception.WriteReadFile;
+import CaseStudy.models.person.Customer;
+import CaseStudy.utils.WriteReadFile;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class VoucherServices {
     private static final int AMOUNT_VOUCHER_50=10;
@@ -54,7 +53,7 @@ public class VoucherServices {
             {
                 mapVoucher.put(maKhachHang,10);
             }
-        writeToVoucher("voucher.cvs");
+        writeToVoucher("D:\\Codegym\\module2\\src\\CaseStudy\\data\\voucher.cvs");
     }
 
     public static void writeToVoucher(String path)

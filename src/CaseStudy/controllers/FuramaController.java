@@ -1,6 +1,9 @@
 package CaseStudy.controllers;
 
 import CaseStudy.models.*;
+import CaseStudy.models.facitily.Facility;
+import CaseStudy.models.person.Customer;
+import CaseStudy.models.person.Employee;
 import CaseStudy.services.Impl.*;
 import java.util.Scanner;
 
@@ -20,15 +23,15 @@ public class FuramaController {
 
     private static void readData()
     {
-        EmployeeServiceImpl.readArrayEmployee("employee.cvs");
-        CustomerServiceImpl.readArrayCostomer("customer.cvs");
-        FacilityServiceImpl.readFacilityVilla("villa.cvs");
-        FacilityServiceImpl.readFacilityHouse("house.cvs");
-        FacilityServiceImpl.readFacilityRoom("room.cvs");
-        FacilityServiceImpl.readFacilityMainteID("facilityid.cvs");
-        BookingServiceImpl.readTreeSetBook("booking.cvs");
-        BookingServiceImpl.readTreeSetContract("contract.cvs");
-        VoucherServices.readToVoucher("voucher.cvs");
+        EmployeeServiceImpl.readArrayEmployee("D:\\Codegym\\module2\\src\\CaseStudy\\data\\employee.cvs");
+        CustomerServiceImpl.readArrayCostomer("D:\\Codegym\\module2\\src\\CaseStudy\\data\\customer.cvs");
+        FacilityServiceImpl.readFacilityVilla("D:\\Codegym\\module2\\src\\CaseStudy\\data\\villa.cvs");
+        FacilityServiceImpl.readFacilityHouse("D:\\Codegym\\module2\\src\\CaseStudy\\data\\house.cvs");
+        FacilityServiceImpl.readFacilityRoom("D:\\Codegym\\module2\\src\\CaseStudy\\data\\room.cvs");
+        FacilityServiceImpl.readFacilityMainteID("D:\\Codegym\\module2\\src\\CaseStudy\\data\\facilityid.cvs");
+        BookingServiceImpl.readTreeSetBook("D:\\Codegym\\module2\\src\\CaseStudy\\data\\booking.cvs");
+        BookingServiceImpl.readTreeSetContract("D:\\Codegym\\module2\\src\\CaseStudy\\data\\contract.cvs");
+        VoucherServices.readToVoucher("D:\\Codegym\\module2\\src\\CaseStudy\\data\\voucher.cvs");
     }
 
     private static void displayMainMenu()
@@ -256,7 +259,7 @@ public class FuramaController {
                     promotionServiceImpl.disPlayUseService();
                     break;
                 case "2":
-                    VoucherServices.disPlay();
+                    promotionServiceImpl.disPlayGetVoucher();
                     break;
                 case "3":
                     return;

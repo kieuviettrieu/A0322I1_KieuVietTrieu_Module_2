@@ -1,4 +1,4 @@
-package CaseStudy.models;
+package CaseStudy.models.person;
 
 import java.util.Date;
 

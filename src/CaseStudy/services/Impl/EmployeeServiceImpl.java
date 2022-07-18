@@ -1,10 +1,10 @@
 package CaseStudy.services.Impl;
 
-import CaseStudy.models.Employee;
+import CaseStudy.models.person.Employee;
 import CaseStudy.services.Interface.EmployeeService;
-import CaseStudy.services.exception.DateException;
-import CaseStudy.services.exception.MatchesCheck;
-import CaseStudy.services.exception.WriteReadFile;
+import CaseStudy.utils.DateException;
+import CaseStudy.utils.MatchesCheck;
+import CaseStudy.utils.WriteReadFile;
 
 import java.text.ParseException;
 import java.util.*;
@@ -124,7 +124,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 System.out.print("CCCD: ");
                 String cccd=scanner.nextLine();
                 arrayEmployee.set(index,new Employee(fullname,birthDay,set,phonenumber,email,cccd,id,level,location,wage));
-                WriteReadFile.writeToFile("employee.cvs",arrayEmployee);
+                WriteReadFile.writeToFile("D:\\Codegym\\module2\\src\\CaseStudy\\data\\employee.cvs",arrayEmployee);
                 System.out.println("Update successful!");
             }
             else
@@ -154,7 +154,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 return o1.getHoTen().compareTo(o2.getHoTen());
             }
         });
-        WriteReadFile.writeToFile("employee.cvs",arrayEmployee);
+        WriteReadFile.writeToFile("D:\\Codegym\\module2\\src\\CaseStudy\\data\\employee.cvs",arrayEmployee);
     }
 
     @Override

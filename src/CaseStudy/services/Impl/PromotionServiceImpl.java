@@ -1,7 +1,7 @@
 package CaseStudy.services.Impl;
 
 import CaseStudy.models.Booking;
-import CaseStudy.models.Customer;
+import CaseStudy.models.person.Customer;
 import CaseStudy.services.Interface.PromotionService;
 
 import java.util.TreeSet;
@@ -40,6 +40,6 @@ public class PromotionServiceImpl implements PromotionService {
 
     @Override
     public void disPlayGetVoucher() {
-
+        VoucherServices.disPlay();
     }
 }

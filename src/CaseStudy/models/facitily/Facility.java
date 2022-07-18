@@ -1,4 +1,4 @@
-package CaseStudy.models;
+package CaseStudy.models.facitily;
 
 public abstract class Facility {
     protected static int id=1000;

@@ -1,6 +1,8 @@
-package CaseStudy.models;
+package CaseStudy.models.facitily;
 
-public class Room extends Facility{
+import CaseStudy.models.facitily.Facility;
+
+public class Room extends Facility {
     private String dichVuFree;
 
     public Room() {

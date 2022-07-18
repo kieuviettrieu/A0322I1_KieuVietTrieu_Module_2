@@ -1,10 +1,11 @@
-package CaseStudy.models;
+package CaseStudy.models.person;
 
-import CaseStudy.services.exception.DateException;
+import CaseStudy.models.person.Person;
+import CaseStudy.utils.DateException;
 
 import java.util.Date;
 
-public class Employee extends Person{
+public class Employee extends Person {
     private int maNhanVien;
     private String trinhDo;
     private String viTri;

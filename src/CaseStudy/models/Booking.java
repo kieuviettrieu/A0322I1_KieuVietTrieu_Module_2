@@ -1,6 +1,6 @@
 package CaseStudy.models;
 
-import CaseStudy.services.exception.DateException;
+import CaseStudy.utils.DateException;
 
 import java.util.Date;
 

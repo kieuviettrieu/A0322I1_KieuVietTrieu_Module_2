@@ -1,10 +1,10 @@
 package CaseStudy.services.Impl;
 
-import CaseStudy.models.Customer;
+import CaseStudy.models.person.Customer;
 import CaseStudy.services.Interface.CustomerService;
-import CaseStudy.services.exception.DateException;
-import CaseStudy.services.exception.MatchesCheck;
-import CaseStudy.services.exception.WriteReadFile;
+import CaseStudy.utils.DateException;
+import CaseStudy.utils.MatchesCheck;
+import CaseStudy.utils.WriteReadFile;
 
 import java.text.ParseException;
 import java.util.*;
@@ -104,7 +104,7 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.print("CCCD: ");
                 String cccd=scanner.nextLine();
                 arrayCustomer.set(index,new Customer(id,fullname,birthDay,set,phonenumber,email,cccd,loaiKhach,address));
-                WriteReadFile.writeToFile("customer.cvs",arrayCustomer);
+                WriteReadFile.writeToFile("D:\\Codegym\\module2\\src\\CaseStudy\\data\\customer.cvs",arrayCustomer);
                 System.out.println("Update successful!");
             }
             else {
@@ -158,7 +158,7 @@ public class CustomerServiceImpl implements CustomerService {
                 return o1.getHoTen().compareTo(o2.getHoTen());
             }
         });
-        WriteReadFile.writeToFile("customer.cvs",arrayCustomer);
+        WriteReadFile.writeToFile("D:\\Codegym\\module2\\src\\CaseStudy\\data\\customer.cvs",arrayCustomer);
     }
 
     @Override

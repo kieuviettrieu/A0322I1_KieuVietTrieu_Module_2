@@ -1,4 +1,4 @@
-package CaseStudy.services.exception;
+package CaseStudy.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

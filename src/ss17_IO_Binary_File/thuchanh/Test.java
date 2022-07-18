@@ -1,10 +1,5 @@
 package ss17_IO_Binary_File.thuchanh;
 
-import CaseStudy.services.exception.WriteReadFile;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Test {
     public static void main(String[] args) {
 //        List<Student> list=new ArrayList<>();

@@ -1,6 +1,6 @@
 package CaseStudy.services.Interface;
 
-import CaseStudy.models.Facility;
+import CaseStudy.models.facitily.Facility;
 
 public interface FacilityService extends Service<Facility> {
     void disPlayFMaintenance();
