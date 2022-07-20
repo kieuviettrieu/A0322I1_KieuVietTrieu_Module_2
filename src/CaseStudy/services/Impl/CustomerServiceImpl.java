@@ -121,7 +121,7 @@ public class CustomerServiceImpl implements CustomerService {
         int index=-1;
         for (int i=0; i<arrayCustomer.size(); i++)
         {
-            if (id==arrayCustomer.get(i).getMaKhachHang())
+            if (id==arrayCustomer.get(i).getCustomerCode())
             {
                 index=i;
                 break;
@@ -145,7 +145,7 @@ public class CustomerServiceImpl implements CustomerService {
         if(customer!=null)
         {
             arrayCustomer.add(customer);
-            VoucherServices.addToVoucher(customer.getMaKhachHang());
+            VoucherServices.addToVoucher(customer.getCustomerCode());
             System.out.println("More success!");
         }
         else
@@ -155,7 +155,7 @@ public class CustomerServiceImpl implements CustomerService {
         Collections.sort(arrayCustomer, new Comparator<Customer>() {
             @Override
             public int compare(Customer o1, Customer o2) {
-                return o1.getHoTen().compareTo(o2.getHoTen());
+                return o1.getFullName().compareTo(o2.getFullName());
             }
         });
         WriteReadFile.writeToFile("D:\\Codegym\\module2\\src\\CaseStudy\\data\\customer.cvs",arrayCustomer);

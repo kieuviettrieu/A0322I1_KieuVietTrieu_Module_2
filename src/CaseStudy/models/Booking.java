@@ -5,31 +5,31 @@ import CaseStudy.utils.DateException;
 import java.util.Date;
 
 public class Booking implements Comparable<Booking>{
-    private int maBooking;
+    private int bookingCode;
     private Date firstDate;
     private Date lastDate;
-    private int maKhachHang;
-    private String tenDichVu;
-    private String loaiDichVu;
+    private int customerCode;
+    private String facilityName;
+    private String facilityType;
 
     public Booking() {
     }
 
-    public Booking(int maBooking, Date firstDate, Date lastDate, int maKhachHang, String tenDichVu, String loaiDichVu) {
-        this.maBooking = maBooking;
+    public Booking(int bookingCode, Date firstDate, Date lastDate, int customerCode, String facilityName, String facilityType) {
+        this.bookingCode = bookingCode;
         this.firstDate = firstDate;
         this.lastDate = lastDate;
-        this.maKhachHang = maKhachHang;
-        this.tenDichVu = tenDichVu;
-        this.loaiDichVu = loaiDichVu;
+        this.customerCode = customerCode;
+        this.facilityName = facilityName;
+        this.facilityType = facilityType;
     }
 
-    public int getMaBooking() {
-        return maBooking;
+    public int getBookingCode() {
+        return bookingCode;
     }
 
-    public void setMaBooking(int maBooking) {
-        this.maBooking = maBooking;
+    public void setBookingCode(int bookingCode) {
+        this.bookingCode = bookingCode;
     }
 
     public Date getFirstDate() {
@@ -48,28 +48,28 @@ public class Booking implements Comparable<Booking>{
         this.lastDate = lastDate;
     }
 
-    public int getMaKhachHang() {
-        return maKhachHang;
+    public int getCustomerCode() {
+        return customerCode;
     }
 
-    public void setMaKhachHang(int maKhachHang) {
-        this.maKhachHang = maKhachHang;
+    public void setCustomerCode(int customerCode) {
+        this.customerCode = customerCode;
     }
 
-    public String getTenDichVu() {
-        return tenDichVu;
+    public String getFacilityName() {
+        return facilityName;
     }
 
-    public void setTenDichVu(String tenDichVu) {
-        this.tenDichVu = tenDichVu;
+    public void setFacilityName(String facilityName) {
+        this.facilityName = facilityName;
     }
 
-    public String getLoaiDichVu() {
-        return loaiDichVu;
+    public String getFacilityType() {
+        return facilityType;
     }
 
-    public void setLoaiDichVu(String loaiDichVu) {
-        this.loaiDichVu = loaiDichVu;
+    public void setFacilityType(String facilityType) {
+        this.facilityType = facilityType;
     }
 
     public String getDay()
@@ -89,12 +89,12 @@ public class Booking implements Comparable<Booking>{
 
     @Override
     public String toString() {
-        return  maBooking +
+        return  bookingCode +
                 ";" + DateException.simpleDateFormat.format(firstDate) +
                 ";" + DateException.simpleDateFormat.format(lastDate) +
-                ";" + maKhachHang +
-                ";" + tenDichVu +
-                ";" + loaiDichVu;
+                ";" + customerCode +
+                ";" + facilityName +
+                ";" + facilityType;
     }
 
     @Override

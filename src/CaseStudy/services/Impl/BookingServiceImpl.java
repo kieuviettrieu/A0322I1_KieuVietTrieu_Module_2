@@ -25,7 +25,7 @@ public class BookingServiceImpl implements BookingService {
         if(booking!=null)
         {
             arrayBooking.add(booking);
-            FacilityServiceImpl.increaseValue(FacilityServiceImpl.searchFacility(booking.getLoaiDichVu()));
+            FacilityServiceImpl.increaseValue(FacilityServiceImpl.searchFacility(booking.getFacilityType()));
             WriteReadFile.writeToBooking("D:\\Codegym\\module2\\src\\CaseStudy\\data\\booking.cvs",arrayBooking);
             System.out.println("More success!");
         }
@@ -114,7 +114,7 @@ public class BookingServiceImpl implements BookingService {
 
                 double tongThanhToan = totalPayment(booking);
                 double tienCoc = tongThanhToan * 0.2;
-                Contract contractNew = new Contract(soHopDong, idBooking, tienCoc, tongThanhToan, booking.getMaKhachHang());
+                Contract contractNew = new Contract(soHopDong, idBooking, tienCoc, tongThanhToan, booking.getCustomerCode());
                 arrayContract.remove(contract);
                 arrayContract.add(contractNew);
                 WriteReadFile.writeToContract("D:\\Codegym\\module2\\src\\CaseStudy\\data\\contract.cvs", arrayContract);
@@ -130,7 +130,7 @@ public class BookingServiceImpl implements BookingService {
     {
         for (Contract contract:arrayContract)
         {
-            if(contract.getSoHopDong()==soHopDong)
+            if(contract.getContractCode()==soHopDong)
             {
                 return contract;
             }
@@ -299,7 +299,7 @@ public class BookingServiceImpl implements BookingService {
         Booking booking=null;
         for (Booking booking1:arrayBooking)
         {
-            if(checkIDContract(booking1.getMaBooking()))
+            if(checkIDContract(booking1.getBookingCode()))
             {
                 booking=booking1;
                 break;
@@ -313,15 +313,15 @@ public class BookingServiceImpl implements BookingService {
 
         double tongThanhToan=(long)totalPayment(booking);
         double tienCoc=(long)tongThanhToan*0.2;
-        Contract contract=new Contract(idContract,booking.getMaBooking(),tienCoc,tongThanhToan,booking.getMaKhachHang());
+        Contract contract=new Contract(idContract,booking.getBookingCode(),tienCoc,tongThanhToan,booking.getCustomerCode());
         return contract;
     }
 
     private static double totalPayment(Booking booking)
     {
-        int maKhachHang=booking.getMaKhachHang();
+        int maKhachHang=booking.getCustomerCode();
         double voucher=VoucherServices.getVoucher(maKhachHang)/100;
-        String idFacility=booking.getLoaiDichVu();
+        String idFacility=booking.getFacilityType();
         Facility facility=FacilityServiceImpl.searchFacility(idFacility);
         double phiThueDay=getPhiThueNgay(facility);
         int numberDay=daysBetween(booking.getFirstDate(),booking.getLastDate());
@@ -337,8 +337,8 @@ public class BookingServiceImpl implements BookingService {
     {
         double phiThueDay;
         String[] arayKieuThue={"","Year","Month","Day","Hour"};
-        String kieuThue=facility.getKieuThue();
-        double phiThue=facility.getChiPhiThue();
+        String kieuThue=facility.getRentalType();
+        double phiThue=facility.getRentalCosts();
         if(kieuThue.equalsIgnoreCase(arayKieuThue[1]))
             phiThueDay=phiThue/365;
         else
@@ -356,7 +356,7 @@ public class BookingServiceImpl implements BookingService {
     {
         for (Booking booking:BookingServiceImpl.arrayBooking)
         {
-            if(idBooking==booking.getMaBooking())
+            if(idBooking==booking.getBookingCode())
             {
                 return booking;
             }
@@ -368,7 +368,7 @@ public class BookingServiceImpl implements BookingService {
     {
         for (Contract contract: arrayContract)
         {
-            if(contract.getSoHopDong()==idContract)
+            if(contract.getContractCode()==idContract)
                 return false;
         }
         return true;
@@ -378,7 +378,7 @@ public class BookingServiceImpl implements BookingService {
     {
         for (Contract contract: arrayContract)
         {
-            if(contract.getMaBooking()==idBook)
+            if(contract.getBookingCode()==idBook)
                 return false;
         }
         return true;

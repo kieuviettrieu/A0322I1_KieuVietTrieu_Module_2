@@ -29,7 +29,7 @@ public class VoucherServices {
             for (Map.Entry<Integer,Integer> entry:mapVoucher.entrySet())
             {
                 Customer customer=customerService.getCustomer(entry.getKey());
-                System.out.println("ID:"+entry.getKey()+", Name:"+customer.getHoTen()+", Voucher: "+entry.getValue()+"%");
+                System.out.println("ID:"+entry.getKey()+", Name:"+customer.getFullName()+", Voucher: "+entry.getValue()+"%");
             }
         }
         else

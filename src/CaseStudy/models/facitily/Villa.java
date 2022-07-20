@@ -1,69 +1,67 @@
 package CaseStudy.models.facitily;
 
-import CaseStudy.models.facitily.Facility;
-
 public class Villa extends Facility {
-    private String tieuChuanPhong;
-    private double dienTichHoBoi;
-    private int soTang;
+    private String villaStandard;
+    private double swimPoolArea;
+    private int numberOfFloors;
 
     public Villa() {
     }
 
-    public Villa(String tieuChuanPhong, double dienTichHoBoi, int soTang) {
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.dienTichHoBoi = dienTichHoBoi;
-        this.soTang = soTang;
+    public Villa(String villaStandard, double swimPoolArea, int numberOfFloors) {
+        this.villaStandard = villaStandard;
+        this.swimPoolArea = swimPoolArea;
+        this.numberOfFloors = numberOfFloors;
     }
 
-    public Villa(String tenDichVu, double dienTich, int chiPhiThue, int soNguoiToiDa, String kieuThue, String tieuChuanPhong, double dienTichHoBoi, int soTang) {
+    public Villa(String tenDichVu, double dienTich, int chiPhiThue, int soNguoiToiDa, String kieuThue, String villaStandard, double swimPoolArea, int numberOfFloors) {
         super(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue);
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.dienTichHoBoi = dienTichHoBoi;
-        this.soTang = soTang;
+        this.villaStandard = villaStandard;
+        this.swimPoolArea = swimPoolArea;
+        this.numberOfFloors = numberOfFloors;
     }
 
-    public Villa(String idDichVu, String tenDichVu, double dienTichSuDung, int chiPhiThue, int soNguoiToiDa, String kieuThue, String tieuChuanPhong, double dienTichHoBoi, int soTang) {
+    public Villa(String idDichVu, String tenDichVu, double dienTichSuDung, int chiPhiThue, int soNguoiToiDa, String kieuThue, String villaStandard, double swimPoolArea, int numberOfFloors) {
         super(idDichVu, tenDichVu, dienTichSuDung, chiPhiThue, soNguoiToiDa, kieuThue);
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.dienTichHoBoi = dienTichHoBoi;
-        this.soTang = soTang;
+        this.villaStandard = villaStandard;
+        this.swimPoolArea = swimPoolArea;
+        this.numberOfFloors = numberOfFloors;
     }
 
-    public String getTieuChuanPhong() {
-        return tieuChuanPhong;
+    public String getVillaStandard() {
+        return villaStandard;
     }
 
-    public void setTieuChuanPhong(String tieuChuanPhong) {
-        this.tieuChuanPhong = tieuChuanPhong;
+    public void setVillaStandard(String villaStandard) {
+        this.villaStandard = villaStandard;
     }
 
-    public double getDienTichHoBoi() {
-        return dienTichHoBoi;
+    public double getSwimPoolArea() {
+        return swimPoolArea;
     }
 
-    public void setDienTichHoBoi(double dienTichHoBoi) {
-        this.dienTichHoBoi = dienTichHoBoi;
+    public void setSwimPoolArea(double swimPoolArea) {
+        this.swimPoolArea = swimPoolArea;
     }
 
-    public int getSoTang() {
-        return soTang;
+    public int getNumberOfFloors() {
+        return numberOfFloors;
     }
 
-    public void setSoTang(int soTang) {
-        this.soTang = soTang;
+    public void setNumberOfFloors(int numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
     }
 
     @Override
     public String toString() {
-        return  idDichVu +
-                ";" + tenDichVu +
-                ";" + dienTichHoBoi +
-                ";" + soTang +
-                ";" +  tieuChuanPhong +
-                ";" + dienTichSuDung +
-                ";" + chiPhiThue +
-                ";" + soNguoiToiDa +
-                ";" + kieuThue;
+        return  facilityID +
+                ";" + facilityName +
+                ";" + swimPoolArea +
+                ";" + numberOfFloors +
+                ";" + villaStandard +
+                ";" + usableArea +
+                ";" + rentalCosts +
+                ";" + numberMaxPerson +
+                ";" + rentalType;
     }
 }

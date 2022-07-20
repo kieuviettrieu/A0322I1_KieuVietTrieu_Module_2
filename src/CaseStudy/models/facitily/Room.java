@@ -1,43 +1,41 @@
 package CaseStudy.models.facitily;
 
-import CaseStudy.models.facitily.Facility;
-
 public class Room extends Facility {
-    private String dichVuFree;
+    private String serviceFree;
 
     public Room() {
     }
 
-    public Room(String dichVuFree) {
-        this.dichVuFree = dichVuFree;
+    public Room(String serviceFree) {
+        this.serviceFree = serviceFree;
     }
 
-    public Room(String tenDichVu, double dienTich, int chiPhiThue, int soNguoiToiDa, String kieuThue, String dichVuFree) {
+    public Room(String tenDichVu, double dienTich, int chiPhiThue, int soNguoiToiDa, String kieuThue, String serviceFree) {
         super(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue);
-        this.dichVuFree = dichVuFree;
+        this.serviceFree = serviceFree;
     }
 
-    public Room(String idDichVu, String tenDichVu, double dienTichSuDung, int chiPhiThue, int soNguoiToiDa, String kieuThue, String dichVuFree) {
+    public Room(String idDichVu, String tenDichVu, double dienTichSuDung, int chiPhiThue, int soNguoiToiDa, String kieuThue, String serviceFree) {
         super(idDichVu, tenDichVu, dienTichSuDung, chiPhiThue, soNguoiToiDa, kieuThue);
-        this.dichVuFree = dichVuFree;
+        this.serviceFree = serviceFree;
     }
 
-    public String getDichVuFree() {
-        return dichVuFree;
+    public String getServiceFree() {
+        return serviceFree;
     }
 
-    public void setDichVuFree(String dichVuFree) {
-        this.dichVuFree = dichVuFree;
+    public void setServiceFree(String serviceFree) {
+        this.serviceFree = serviceFree;
     }
 
     @Override
     public String toString() {
-        return  idDichVu +
-                ";" + tenDichVu +
-                ";" + dienTichSuDung +
-                ";" + chiPhiThue +
-                ";" + soNguoiToiDa +
-                ";" + kieuThue +
-                ";" + dichVuFree ;
+        return  facilityID +
+                ";" + facilityName +
+                ";" + usableArea +
+                ";" + rentalCosts +
+                ";" + numberMaxPerson +
+                ";" + rentalType +
+                ";" + serviceFree;
     }
 }

@@ -151,7 +151,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         Collections.sort(arrayEmployee, new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {
-                return o1.getHoTen().compareTo(o2.getHoTen());
+                return o1.getFullName().compareTo(o2.getFullName());
             }
         });
         WriteReadFile.writeToFile("D:\\Codegym\\module2\\src\\CaseStudy\\data\\employee.cvs",arrayEmployee);
@@ -178,7 +178,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         int index=-1;
         for (int i=0; i<arrayEmployee.size(); i++)
         {
-            if (id==arrayEmployee.get(i).getMaNhanVien())
+            if (id==arrayEmployee.get(i).getEmployeeCode())
             {
                 index=i;
                 break;

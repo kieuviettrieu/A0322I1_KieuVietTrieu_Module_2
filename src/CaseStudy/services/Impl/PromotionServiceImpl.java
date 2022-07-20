@@ -16,7 +16,7 @@ public class PromotionServiceImpl implements PromotionService {
         arrayCustomerService.clear();
         for (Booking booking:bookingService.getTreeSetBooking())
         {
-            arrayCustomerService.add(booking.getMaKhachHang());
+            arrayCustomerService.add(booking.getCustomerCode());
         }
     }
 

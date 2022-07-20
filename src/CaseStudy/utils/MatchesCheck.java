@@ -26,6 +26,7 @@ public class MatchesCheck {
         return matcher.matches();
     }
 
+
     public static boolean checkOneNumber(String id)
     {
         pattern = Pattern.compile(ONE_REGEX);
@@ -40,8 +41,4 @@ public class MatchesCheck {
         return matcher.matches();
     }
 
-    public static void main(String[] args) {
-        System.out.println(checkOneNumber("0"));
-        System.out.println(checkEmail("a@gmail.com"));
-    }
 }

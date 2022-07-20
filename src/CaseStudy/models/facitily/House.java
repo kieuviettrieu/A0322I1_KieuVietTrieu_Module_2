@@ -1,56 +1,54 @@
 package CaseStudy.models.facitily;
 
-import CaseStudy.models.facitily.Facility;
-
 public class House extends Facility {
-    private String tieuChuanPhong;
-    private int soTang;
+    private String houseStandard;
+    private int numberOfFloors;
 
     public House() {
     }
 
-    public House(String tieuChuanPhong, int soTang) {
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.soTang = soTang;
+    public House(String houseStandard, int numberOfFloors) {
+        this.houseStandard = houseStandard;
+        this.numberOfFloors = numberOfFloors;
     }
 
-    public House(String tenDichVu, double dienTich, int chiPhiThue, int soNguoiToiDa, String kieuThue, String tieuChuanPhong, int soTang) {
+    public House(String tenDichVu, double dienTich, int chiPhiThue, int soNguoiToiDa, String kieuThue, String houseStandard, int numberOfFloors) {
         super(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue);
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.soTang = soTang;
+        this.houseStandard = houseStandard;
+        this.numberOfFloors = numberOfFloors;
     }
 
-    public House(String idDichVu, String tenDichVu, double dienTichSuDung, int chiPhiThue, int soNguoiToiDa, String kieuThue, String tieuChuanPhong, int soTang) {
+    public House(String idDichVu, String tenDichVu, double dienTichSuDung, int chiPhiThue, int soNguoiToiDa, String kieuThue, String houseStandard, int numberOfFloors) {
         super(idDichVu, tenDichVu, dienTichSuDung, chiPhiThue, soNguoiToiDa, kieuThue);
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.soTang = soTang;
+        this.houseStandard = houseStandard;
+        this.numberOfFloors = numberOfFloors;
     }
 
-    public String getTieuChuanPhong() {
-        return tieuChuanPhong;
+    public String getHouseStandard() {
+        return houseStandard;
     }
 
-    public void setTieuChuanPhong(String tieuChuanPhong) {
-        this.tieuChuanPhong = tieuChuanPhong;
+    public void setHouseStandard(String houseStandard) {
+        this.houseStandard = houseStandard;
     }
 
-    public int getSoTang() {
-        return soTang;
+    public int getNumberOfFloors() {
+        return numberOfFloors;
     }
 
-    public void setSoTang(int soTang) {
-        this.soTang = soTang;
+    public void setNumberOfFloors(int numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
     }
 
     @Override
     public String toString() {
-        return  idDichVu +
-                ";" + tenDichVu +
-                ";" + soTang +
-                ";" + tieuChuanPhong +
-                ";" + dienTichSuDung +
-                ";" + chiPhiThue +
-                ";" + soNguoiToiDa +
-                ";" + kieuThue ;
+        return  facilityID +
+                ";" + facilityName +
+                ";" + numberOfFloors +
+                ";" + houseStandard +
+                ";" + usableArea +
+                ";" + rentalCosts +
+                ";" + numberMaxPerson +
+                ";" + rentalType;
     }
 }

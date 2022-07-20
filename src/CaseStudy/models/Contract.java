@@ -2,81 +2,80 @@ package CaseStudy.models;
 
 import CaseStudy.services.Impl.BookingServiceImpl;
 
-import java.util.Comparator;
 import java.util.Date;
 
 public class Contract implements Comparable<Contract>{
-    private int soHopDong;
-    private int maBooking;
-    private double tienCoc;
-    private double tienThanhToan;
-    private int maKhachHang;
+    private int contractCode;
+    private int bookingCode;
+    private double deposit;
+    private double payments;
+    private int customerCode;
 
     public Contract() {
     }
 
-    public Contract(int soHopDong, int maBooking, double tienCoc, double tienThanhToan, int maKhachHang) {
-        this.soHopDong = soHopDong;
-        this.maBooking = maBooking;
-        this.tienCoc = tienCoc;
-        this.tienThanhToan = tienThanhToan;
-        this.maKhachHang = maKhachHang;
+    public Contract(int contractCode, int bookingCode, double deposit, double payments, int customerCode) {
+        this.contractCode = contractCode;
+        this.bookingCode = bookingCode;
+        this.deposit = deposit;
+        this.payments = payments;
+        this.customerCode = customerCode;
     }
 
-    public int getSoHopDong() {
-        return soHopDong;
+    public int getContractCode() {
+        return contractCode;
     }
 
-    public void setSoHopDong(int soHopDong) {
-        this.soHopDong = soHopDong;
+    public void setContractCode(int contractCode) {
+        this.contractCode = contractCode;
     }
 
-    public int getMaBooking() {
-        return maBooking;
+    public int getBookingCode() {
+        return bookingCode;
     }
 
-    public void setMaBooking(int maBooking) {
-        this.maBooking = maBooking;
+    public void setBookingCode(int bookingCode) {
+        this.bookingCode = bookingCode;
     }
 
-    public double getTienCoc() {
-        return tienCoc;
+    public double getDeposit() {
+        return deposit;
     }
 
-    public void setTienCoc(double tienCoc) {
-        this.tienCoc = tienCoc;
+    public void setDeposit(double deposit) {
+        this.deposit = deposit;
     }
 
-    public double getTienThanhToan() {
-        return tienThanhToan;
+    public double getPayments() {
+        return payments;
     }
 
-    public void setTienThanhToan(double tienThanhToan) {
-        this.tienThanhToan = tienThanhToan;
+    public void setPayments(double payments) {
+        this.payments = payments;
     }
 
-    public int getMaKhachHang() {
-        return maKhachHang;
+    public int getCustomerCode() {
+        return customerCode;
     }
 
-    public void setMaKhachHang(int maKhachHang) {
-        this.maKhachHang = maKhachHang;
+    public void setCustomerCode(int customerCode) {
+        this.customerCode = customerCode;
     }
 
     @Override
     public String toString() {
-        return  soHopDong +
-                ";" + maBooking +
-                ";" + tienCoc +
-                ";" + tienThanhToan +
-                ";" + maKhachHang;
+        return  contractCode +
+                ";" + bookingCode +
+                ";" + deposit +
+                ";" + payments +
+                ";" + customerCode;
     }
 
     @Override
     public int compareTo(Contract o) {
-        int maBook=o.getMaBooking();
+        int maBook=o.getBookingCode();
         Date date=BookingServiceImpl.searchBooking(maBook).getFirstDate();
-        Date date1=BookingServiceImpl.searchBooking(maBooking).getFirstDate();
+        Date date1=BookingServiceImpl.searchBooking(bookingCode).getFirstDate();
         return date1.compareTo(date);
     }
 }

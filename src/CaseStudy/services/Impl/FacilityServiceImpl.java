@@ -264,7 +264,7 @@ public class FacilityServiceImpl implements FacilityService {
         {
             for (Map.Entry<Villa,Integer> villaIntegerEntry:mapVilla.entrySet())
             {
-                if(villaIntegerEntry.getKey().getIdDichVu().equalsIgnoreCase(id))
+                if(villaIntegerEntry.getKey().getFacilityID().equalsIgnoreCase(id))
                 {
                     return villaIntegerEntry.getKey();
                 }
@@ -275,7 +275,7 @@ public class FacilityServiceImpl implements FacilityService {
         {
             for (Map.Entry<House,Integer> houseIntegerEntry:mapHouse.entrySet())
             {
-                if(houseIntegerEntry.getKey().getIdDichVu().equalsIgnoreCase(id))
+                if(houseIntegerEntry.getKey().getFacilityID().equalsIgnoreCase(id))
                 {
                     return houseIntegerEntry.getKey();
                 }
@@ -286,7 +286,7 @@ public class FacilityServiceImpl implements FacilityService {
         {
             for (Map.Entry<Room,Integer> roomIntegerEntry:mapRoom.entrySet())
             {
-                if(roomIntegerEntry.getKey().getIdDichVu().equalsIgnoreCase(id))
+                if(roomIntegerEntry.getKey().getFacilityID().equalsIgnoreCase(id))
                 {
                     return roomIntegerEntry.getKey();
                 }
@@ -311,7 +311,7 @@ public class FacilityServiceImpl implements FacilityService {
             value=mapVilla.get(villa);
             if(value==4)
             {
-                mapMainteID.add(villa.getIdDichVu());
+                mapMainteID.add(villa.getFacilityID());
                 mapVilla.put(villa,0);
             }
             else
@@ -325,7 +325,7 @@ public class FacilityServiceImpl implements FacilityService {
             value=mapHouse.get(house);
             if(value==4)
             {
-                mapMainteID.add(house.getIdDichVu());
+                mapMainteID.add(house.getFacilityID());
                 mapHouse.put(house,0);
             }
             else
@@ -339,7 +339,7 @@ public class FacilityServiceImpl implements FacilityService {
                 value=mapRoom.get(room);
                 if(value==4)
                 {
-                    mapMainteID.add(room.getIdDichVu());
+                    mapMainteID.add(room.getFacilityID());
                     mapRoom.put(room,0);
                 }
                 else

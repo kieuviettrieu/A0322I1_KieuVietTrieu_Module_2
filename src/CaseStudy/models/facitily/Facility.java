@@ -2,78 +2,78 @@ package CaseStudy.models.facitily;
 
 public abstract class Facility {
     protected static int id=1000;
-    protected String idDichVu;
-    protected String tenDichVu;
-    protected double dienTichSuDung;
-    protected int chiPhiThue;
-    protected int soNguoiToiDa;
-    protected String kieuThue;
+    protected String facilityID;
+    protected String facilityName;
+    protected double usableArea;
+    protected int rentalCosts;
+    protected int numberMaxPerson;
+    protected String rentalType;
 
     public Facility() {
     }
 
-    public Facility(String tenDichVu, double dienTich, int chiPhiThue, int soNguoiToiDa, String kieuThue) {
-        this.tenDichVu = tenDichVu;
-        this.dienTichSuDung = dienTich;
-        this.chiPhiThue = chiPhiThue;
-        this.soNguoiToiDa = soNguoiToiDa;
-        this.kieuThue = kieuThue;
+    public Facility(String facilityName, double dienTich, int rentalCosts, int numberMaxPerson, String rentalType) {
+        this.facilityName = facilityName;
+        this.usableArea = dienTich;
+        this.rentalCosts = rentalCosts;
+        this.numberMaxPerson = numberMaxPerson;
+        this.rentalType = rentalType;
         String maHoa="SV";
-        if(tenDichVu.equalsIgnoreCase("Villa")) maHoa+="VL";
+        if(facilityName.equalsIgnoreCase("Villa")) maHoa+="VL";
         else
-        if(tenDichVu.equalsIgnoreCase("Room")) maHoa+="RO";
+        if(facilityName.equalsIgnoreCase("Room")) maHoa+="RO";
         else
-        if(tenDichVu.equalsIgnoreCase("House")) maHoa+="HO";
-        idDichVu=maHoa+"-"+(++id);
+        if(facilityName.equalsIgnoreCase("House")) maHoa+="HO";
+        facilityID =maHoa+"-"+(++id);
     }
 
-    public Facility(String idDichVu, String tenDichVu, double dienTichSuDung, int chiPhiThue, int soNguoiToiDa, String kieuThue) {
-        this.idDichVu = idDichVu;
-        this.tenDichVu = tenDichVu;
-        this.dienTichSuDung = dienTichSuDung;
-        this.chiPhiThue = chiPhiThue;
-        this.soNguoiToiDa = soNguoiToiDa;
-        this.kieuThue = kieuThue;
+    public Facility(String facilityID, String facilityName, double usableArea, int rentalCosts, int numberMaxPerson, String rentalType) {
+        this.facilityID = facilityID;
+        this.facilityName = facilityName;
+        this.usableArea = usableArea;
+        this.rentalCosts = rentalCosts;
+        this.numberMaxPerson = numberMaxPerson;
+        this.rentalType = rentalType;
     }
 
-    public String getTenDichVu() {
-        return tenDichVu;
+    public String getFacilityName() {
+        return facilityName;
     }
 
-    public void setTenDichVu(String tenDichVu) {
-        this.tenDichVu = tenDichVu;
+    public void setFacilityName(String facilityName) {
+        this.facilityName = facilityName;
     }
 
-    public double getDienTichSuDung() {
-        return dienTichSuDung;
+    public double getUsableArea() {
+        return usableArea;
     }
 
-    public void setDienTichSuDung(double dienTichSuDung) {
-        this.dienTichSuDung = dienTichSuDung;
+    public void setUsableArea(double usableArea) {
+        this.usableArea = usableArea;
     }
 
-    public int getChiPhiThue() {
-        return chiPhiThue;
+    public int getRentalCosts() {
+        return rentalCosts;
     }
 
-    public void setChiPhiThue(int chiPhiThue) {
-        this.chiPhiThue = chiPhiThue;
+    public void setRentalCosts(int rentalCosts) {
+        this.rentalCosts = rentalCosts;
     }
 
-    public int getSoNguoiToiDa() {
-        return soNguoiToiDa;
+    public int getNumberMaxPerson() {
+        return numberMaxPerson;
     }
 
-    public void setSoNguoiToiDa(int soNguoiToiDa) {
-        this.soNguoiToiDa = soNguoiToiDa;
+    public void setNumberMaxPerson(int numberMaxPerson) {
+        this.numberMaxPerson = numberMaxPerson;
     }
 
-    public String getKieuThue() {
-        return kieuThue;
+    public String getRentalType() {
+        return rentalType;
     }
 
-    public void setKieuThue(String kieuThue) {
-        this.kieuThue = kieuThue;
+    public void setRentalType(String rentalType) {
+        this.rentalType = rentalType;
     }
 
     public static int getId() {
@@ -84,11 +84,11 @@ public abstract class Facility {
         Facility.id = id;
     }
 
-    public String getIdDichVu() {
-        return idDichVu;
+    public String getFacilityID() {
+        return facilityID;
     }
 
-    public void setIdDichVu(String idDichVu) {
-        this.idDichVu = idDichVu;
+    public void setFacilityID(String facilityID) {
+        this.facilityID = facilityID;
     }
 }

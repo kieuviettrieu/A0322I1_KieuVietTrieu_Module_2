@@ -1,79 +1,78 @@
 package CaseStudy.models.person;
 
-import CaseStudy.models.person.Person;
 import CaseStudy.utils.DateException;
 
 import java.util.Date;
 
 public class Customer extends Person {
-    private int maKhachHang;
-    private String loaiKhach;
-    private String diaChi;
+    private int customerCode;
+    private String typeOfGuest;
+    private String address;
 
     public Customer() {
     }
 
-    public Customer(int maKhachHang, String loaiKhach, String diaChi) {
-        this.maKhachHang = maKhachHang;
-        this.loaiKhach = loaiKhach;
-        this.diaChi = diaChi;
+    public Customer(int customerCode, String typeOfGuest, String address) {
+        this.customerCode = customerCode;
+        this.typeOfGuest = typeOfGuest;
+        this.address = address;
     }
 
-    public Customer(int maKhachHang,String hoTen, Date ngaysinh, String gioiTinh, String soDienThoai, String email, String soCCCD, String loaiKhach, String diaChi) {
+    public Customer(int customerCode, String hoTen, Date ngaysinh, String gioiTinh, String soDienThoai, String email, String soCCCD, String typeOfGuest, String address) {
         super(hoTen, ngaysinh, gioiTinh, soDienThoai, email, soCCCD);
-        this.maKhachHang = maKhachHang;
-        this.loaiKhach = loaiKhach;
-        this.diaChi = diaChi;
+        this.customerCode = customerCode;
+        this.typeOfGuest = typeOfGuest;
+        this.address = address;
     }
 
-    public int getMaKhachHang() {
-        return maKhachHang;
+    public int getCustomerCode() {
+        return customerCode;
     }
 
-    public void setMaKhachHang(int maKhachHang) {
-        this.maKhachHang = maKhachHang;
+    public void setCustomerCode(int customerCode) {
+        this.customerCode = customerCode;
     }
 
-    public String getLoaiKhach() {
-        return loaiKhach;
+    public String getTypeOfGuest() {
+        return typeOfGuest;
     }
 
-    public void setLoaiKhach(String loaiKhach) {
-        this.loaiKhach = loaiKhach;
+    public void setTypeOfGuest(String typeOfGuest) {
+        this.typeOfGuest = typeOfGuest;
     }
 
-    public String getDiaChi() {
-        return diaChi;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
 
     @Override
     public String toString() {
-        return maKhachHang +
-                ";" + loaiKhach +
-                ";" + diaChi +
-                ";" + hoTen +
-                ";" + DateException.simpleDateFormat.format(ngaysinh) +
-                ";" + gioiTinh +
-                ";" + soDienThoai +
+        return customerCode +
+                ";" + typeOfGuest +
+                ";" + address +
+                ";" + fullName +
+                ";" + DateException.simpleDateFormat.format(birthDay) +
+                ";" + gender +
+                ";" + phoneNumber +
                 ";" + email +
-                ";" + soCCCD;
+                ";" + numberCCCD;
     }
 
     public String toInfomation()
     {
-        return  "maKhachHang:" + maKhachHang +
-                ", loaiKhach:" + loaiKhach +
-                ", diaChi:" + diaChi  +
-                ", hoTen:" + hoTen +
-                ", ngaysinh:" + ngaysinh +
-                ", gioiTinh:" + gioiTinh +
-                ", soDienThoai:" + soDienThoai +
+        return  "maKhachHang:" + customerCode +
+                ", loaiKhach:" + typeOfGuest +
+                ", diaChi:" + address +
+                ", hoTen:" + fullName +
+                ", ngaysinh:" + birthDay +
+                ", gioiTinh:" + gender +
+                ", soDienThoai:" + phoneNumber +
                 ", email:" + email +
-                ", soCCCD:" + soCCCD ;
+                ", soCCCD:" + numberCCCD;
     }
 }

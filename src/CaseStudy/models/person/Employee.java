@@ -1,64 +1,63 @@
 package CaseStudy.models.person;
 
-import CaseStudy.models.person.Person;
 import CaseStudy.utils.DateException;
 
 import java.util.Date;
 
 public class Employee extends Person {
-    private int maNhanVien;
-    private String trinhDo;
-    private String viTri;
-    private double luong;
+    private int employeeCode;
+    private String level;
+    private String location;
+    private double wage;
 
     public Employee() {
     }
 
-    public Employee(int maNhanVien, String trinhDo, String viTri, double luong) {
-        this.maNhanVien = maNhanVien;
-        this.trinhDo = trinhDo;
-        this.viTri = viTri;
-        this.luong = luong;
+    public Employee(int employeeCode, String level, String location, double wage) {
+        this.employeeCode = employeeCode;
+        this.level = level;
+        this.location = location;
+        this.wage = wage;
     }
 
-    public Employee(String hoTen, Date ngaysinh, String gioiTinh, String soDienThoai, String email, String soCCCD, int maNhanVien, String trinhDo, String viTri, double luong) {
+    public Employee(String hoTen, Date ngaysinh, String gioiTinh, String soDienThoai, String email, String soCCCD, int employeeCode, String level, String location, double wage) {
         super(hoTen, ngaysinh, gioiTinh, soDienThoai, email, soCCCD);
-        this.maNhanVien = maNhanVien;
-        this.trinhDo = trinhDo;
-        this.viTri = viTri;
-        this.luong = luong;
+        this.employeeCode = employeeCode;
+        this.level = level;
+        this.location = location;
+        this.wage = wage;
     }
 
-    public int getMaNhanVien() {
-        return maNhanVien;
+    public int getEmployeeCode() {
+        return employeeCode;
     }
 
-    public void setMaNhanVien(int maNhanVien) {
-        this.maNhanVien = maNhanVien;
+    public void setEmployeeCode(int employeeCode) {
+        this.employeeCode = employeeCode;
     }
 
-    public String getTrinhDo() {
-        return trinhDo;
+    public String getLevel() {
+        return level;
     }
 
-    public void setTrinhDo(String trinhDo) {
-        this.trinhDo = trinhDo;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
-    public String getViTri() {
-        return viTri;
+    public String getLocation() {
+        return location;
     }
 
-    public void setViTri(String viTri) {
-        this.viTri = viTri;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public double getLuong() {
-        return luong;
+    public double getWage() {
+        return wage;
     }
 
-    public void setLuong(double luong) {
-        this.luong = luong;
+    public void setWage(double wage) {
+        this.wage = wage;
     }
 
 //    @Override
@@ -78,15 +77,15 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return  maNhanVien +
-                ";" + trinhDo +
-                ";" + viTri +
-                ";" + luong +
-                ";" + hoTen +
-                ";" + DateException.simpleDateFormat.format(ngaysinh) +
-                ";" + gioiTinh +
-                ";" + soDienThoai +
+        return  employeeCode +
+                ";" + level +
+                ";" + location +
+                ";" + wage +
+                ";" + fullName +
+                ";" + DateException.simpleDateFormat.format(birthDay) +
+                ";" + gender +
+                ";" + phoneNumber +
                 ";" + email +
-                ";" + soCCCD;
+                ";" + numberCCCD;
     }
 }
