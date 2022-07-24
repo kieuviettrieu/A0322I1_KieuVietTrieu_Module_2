@@ -5,6 +5,8 @@ import CaseStudy.models.facitily.Facility;
 import CaseStudy.models.person.Customer;
 import CaseStudy.models.person.Employee;
 import CaseStudy.services.Impl.*;
+import CaseStudy.utils.WriteReadFile;
+
 import java.util.Scanner;
 
 public class FuramaController {
@@ -23,15 +25,15 @@ public class FuramaController {
 
     private static void readData()
     {
-        EmployeeServiceImpl.readArrayEmployee("D:\\Codegym\\module2\\src\\CaseStudy\\data\\employee.cvs");
-        CustomerServiceImpl.readArrayCostomer("D:\\Codegym\\module2\\src\\CaseStudy\\data\\customer.cvs");
-        FacilityServiceImpl.readFacilityVilla("D:\\Codegym\\module2\\src\\CaseStudy\\data\\villa.cvs");
-        FacilityServiceImpl.readFacilityHouse("D:\\Codegym\\module2\\src\\CaseStudy\\data\\house.cvs");
-        FacilityServiceImpl.readFacilityRoom("D:\\Codegym\\module2\\src\\CaseStudy\\data\\room.cvs");
-        FacilityServiceImpl.readFacilityMainteID("D:\\Codegym\\module2\\src\\CaseStudy\\data\\facilityid.cvs");
-        BookingServiceImpl.readTreeSetBook("D:\\Codegym\\module2\\src\\CaseStudy\\data\\booking.cvs");
-        BookingServiceImpl.readTreeSetContract("D:\\Codegym\\module2\\src\\CaseStudy\\data\\contract.cvs");
-        VoucherServices.readToVoucher("D:\\Codegym\\module2\\src\\CaseStudy\\data\\voucher.cvs");
+        EmployeeServiceImpl.readArrayEmployee(WriteReadFile.FILE_EMPLOYEE);
+        CustomerServiceImpl.readArrayCostomer(WriteReadFile.FILE_CUSTOMER);
+        FacilityServiceImpl.readFacilityVilla(WriteReadFile.FILE_VILLA);
+        FacilityServiceImpl.readFacilityHouse(WriteReadFile.FILE_HOUSE);
+        FacilityServiceImpl.readFacilityRoom(WriteReadFile.FILE_ROOM);
+        FacilityServiceImpl.readFacilityMainteID(WriteReadFile.FILE_FACILITYMAINTEDID);
+        BookingServiceImpl.readTreeSetBook(WriteReadFile.FILE_BOOKING);
+        BookingServiceImpl.readTreeSetContract(WriteReadFile.FILE_CONTRACT);
+        VoucherServices.readToVoucher(WriteReadFile.FILE_VOUCHER);
     }
 
     private static void displayMainMenu()

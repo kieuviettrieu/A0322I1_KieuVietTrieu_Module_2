@@ -26,7 +26,7 @@ public class BookingServiceImpl implements BookingService {
         {
             arrayBooking.add(booking);
             FacilityServiceImpl.increaseValue(FacilityServiceImpl.searchFacility(booking.getFacilityType()));
-            WriteReadFile.writeToBooking("D:\\Codegym\\module2\\src\\CaseStudy\\data\\booking.cvs",arrayBooking);
+            WriteReadFile.writeToBooking(WriteReadFile.FILE_BOOKING,arrayBooking);
             System.out.println("More success!");
         }
         else
@@ -41,7 +41,7 @@ public class BookingServiceImpl implements BookingService {
         {
             System.out.println("Contract created: "+contract);
             arrayContract.add(contract);
-            WriteReadFile.writeToContract("D:\\Codegym\\module2\\src\\CaseStudy\\data\\contract.cvs",arrayContract);
+            WriteReadFile.writeToContract(WriteReadFile.FILE_CONTRACT,arrayContract);
             System.out.println("More success!");
         }
         else
@@ -61,7 +61,7 @@ public class BookingServiceImpl implements BookingService {
         {
             for (Contract contract:arrayContract)
             {
-                System.out.println(contract.toString());
+                System.out.println(contract.toInfomation());
             }
         }
     }
@@ -117,7 +117,7 @@ public class BookingServiceImpl implements BookingService {
                 Contract contractNew = new Contract(soHopDong, idBooking, tienCoc, tongThanhToan, booking.getCustomerCode());
                 arrayContract.remove(contract);
                 arrayContract.add(contractNew);
-                WriteReadFile.writeToContract("D:\\Codegym\\module2\\src\\CaseStudy\\data\\contract.cvs", arrayContract);
+                WriteReadFile.writeToContract(WriteReadFile.FILE_CONTRACT, arrayContract);
                 System.out.println("Update successful!");
             }
         }catch (Exception e)
@@ -149,7 +149,7 @@ public class BookingServiceImpl implements BookingService {
         {
             for (Booking booking:arrayBooking)
             {
-                System.out.println(booking.toString());
+                System.out.println(booking.toInfomation());
             }
         }
     }

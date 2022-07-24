@@ -53,7 +53,7 @@ public class VoucherServices {
             {
                 mapVoucher.put(maKhachHang,10);
             }
-        writeToVoucher("D:\\Codegym\\module2\\src\\CaseStudy\\data\\voucher.cvs");
+        writeToVoucher(WriteReadFile.FILE_VOUCHER);
     }
 
     public static void writeToVoucher(String path)

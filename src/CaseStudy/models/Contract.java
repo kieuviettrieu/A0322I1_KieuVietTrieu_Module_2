@@ -1,6 +1,7 @@
 package CaseStudy.models;
 
 import CaseStudy.services.Impl.BookingServiceImpl;
+import CaseStudy.utils.DateException;
 
 import java.util.Date;
 
@@ -69,6 +70,13 @@ public class Contract implements Comparable<Contract>{
                 ";" + deposit +
                 ";" + payments +
                 ";" + customerCode;
+    }
+
+    public String toInfomation()
+    {
+        return "ID:"+contractCode+", Booking code:"+bookingCode+
+                ", Deposit:"+deposit+", Payments:"+payments+
+                ", Customer code:" +customerCode;
     }
 
     @Override

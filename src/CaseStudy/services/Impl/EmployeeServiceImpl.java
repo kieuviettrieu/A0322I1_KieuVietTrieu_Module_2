@@ -124,7 +124,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 System.out.print("CCCD: ");
                 String cccd=scanner.nextLine();
                 arrayEmployee.set(index,new Employee(fullname,birthDay,set,phonenumber,email,cccd,id,level,location,wage));
-                WriteReadFile.writeToFile("D:\\Codegym\\module2\\src\\CaseStudy\\data\\employee.cvs",arrayEmployee);
+                WriteReadFile.writeToFile(WriteReadFile.FILE_EMPLOYEE,arrayEmployee);
                 System.out.println("Update successful!");
             }
             else
@@ -154,7 +154,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 return o1.getFullName().compareTo(o2.getFullName());
             }
         });
-        WriteReadFile.writeToFile("D:\\Codegym\\module2\\src\\CaseStudy\\data\\employee.cvs",arrayEmployee);
+        WriteReadFile.writeToFile(WriteReadFile.FILE_EMPLOYEE,arrayEmployee);
     }
 
     @Override
@@ -164,7 +164,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         {
             for (Employee employee:arrayEmployee)
             {
-                System.out.println(employee.toString());
+                System.out.println(employee.toInfomation());
             }
         }
         else

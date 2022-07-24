@@ -104,7 +104,7 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.print("CCCD: ");
                 String cccd=scanner.nextLine();
                 arrayCustomer.set(index,new Customer(id,fullname,birthDay,set,phonenumber,email,cccd,loaiKhach,address));
-                WriteReadFile.writeToFile("D:\\Codegym\\module2\\src\\CaseStudy\\data\\customer.cvs",arrayCustomer);
+                WriteReadFile.writeToFile(WriteReadFile.FILE_CUSTOMER,arrayCustomer);
                 System.out.println("Update successful!");
             }
             else {
@@ -158,7 +158,7 @@ public class CustomerServiceImpl implements CustomerService {
                 return o1.getFullName().compareTo(o2.getFullName());
             }
         });
-        WriteReadFile.writeToFile("D:\\Codegym\\module2\\src\\CaseStudy\\data\\customer.cvs",arrayCustomer);
+        WriteReadFile.writeToFile(WriteReadFile.FILE_CUSTOMER,arrayCustomer);
     }
 
     @Override
@@ -168,7 +168,7 @@ public class CustomerServiceImpl implements CustomerService {
         {
             for (Customer customer:arrayCustomer)
             {
-                System.out.println(customer.toString());
+                System.out.println(customer.toInfomation());
             }
         }
         else

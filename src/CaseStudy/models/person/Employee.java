@@ -60,20 +60,13 @@ public class Employee extends Person {
         this.wage = wage;
     }
 
-//    @Override
-//    public String toString() {
-//        return "ID:" + maNhanVien +
-//                ", Level:" + trinhDo +
-//                ", Location:" + viTri+
-//                ", Wage:" + luong +
-//                ", Fullname:" + hoTen +
-//                ", Birthday:" + simpleDateFormat.format(ngaysinh) +
-//                ", Set:" + gioiTinh +
-//                ", PhoneNumber:" + soDienThoai +
-//                ", Email" + email +
-//                ", CCCD:" + soCCCD ;
-//    }
 
+    public String toInfomation()
+    {
+        return   "ID:"+employeeCode+", Level:"+level+", Location:"+location+", Wage:"+wage+", Full name:"+fullName+
+                ", Birth day:"+DateException.simpleDateFormat.format(birthDay)+", Gender:"+gender+", Phone number: "+phoneNumber
+                +", Email:"+email+", CCCD:"+numberCCCD;
+    }
 
     @Override
     public String toString() {

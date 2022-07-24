@@ -97,6 +97,13 @@ public class Booking implements Comparable<Booking>{
                 ";" + facilityType;
     }
 
+    public String toInfomation()
+    {
+        return   "ID:"+bookingCode+", First day:"+DateException.simpleDateFormat.format(firstDate)
+                +", End day:"+DateException.simpleDateFormat.format(lastDate)+", Customer code:"+customerCode
+                +", Facility: "+facilityName+"-"+facilityType;
+    }
+
     @Override
     public int compareTo(Booking o) {
         return this.getFirstDate().compareTo(o.getFirstDate());

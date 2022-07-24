@@ -1,5 +1,7 @@
 package CaseStudy.models.facitily;
 
+import CaseStudy.utils.DateException;
+
 public class House extends Facility {
     private String houseStandard;
     private int numberOfFloors;
@@ -50,5 +52,12 @@ public class House extends Facility {
                 ";" + rentalCosts +
                 ";" + numberMaxPerson +
                 ";" + rentalType;
+    }
+
+    public String toInfomation()
+    {
+        return   "ID:"+facilityID+", Facility:"+facilityName+", Number of floors:"+numberOfFloors+", HouseStandard:"
+                +houseStandard +", Usable area:"+usableArea+", Rentalc costs:"+rentalCosts+", Max person:"
+                +numberMaxPerson+ ", Rental type:"+rentalType;
     }
 }

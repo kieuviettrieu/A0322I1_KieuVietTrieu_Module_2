@@ -38,4 +38,10 @@ public class Room extends Facility {
                 ";" + rentalType +
                 ";" + serviceFree;
     }
+
+    public String toInfomation()
+    {
+        return   "ID:"+facilityID+", Facility:"+facilityName+", Usable area:"+usableArea+", Rentalc costs:"+rentalCosts
+                +", Max person:" +numberMaxPerson+ ", Rental type:"+rentalType+", Service free:"+serviceFree;
+    }
 }

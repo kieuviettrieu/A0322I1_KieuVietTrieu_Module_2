@@ -14,6 +14,15 @@ import java.text.ParseException;
 import java.util.*;
 
 public class WriteReadFile {
+    public static final String FILE_EMPLOYEE="D:\\Codegym\\module2\\src\\CaseStudy\\data\\employee.cvs";
+    public static final String FILE_CUSTOMER="D:\\Codegym\\module2\\src\\CaseStudy\\data\\customer.cvs";
+    public static final String FILE_VILLA="D:\\Codegym\\module2\\src\\CaseStudy\\data\\villa.cvs";
+    public static final String FILE_HOUSE="D:\\Codegym\\module2\\src\\CaseStudy\\data\\house.cvs";
+    public static final String FILE_ROOM="D:\\Codegym\\module2\\src\\CaseStudy\\data\\room.cvs";
+    public static final String FILE_FACILITYMAINTEDID="D:\\Codegym\\module2\\src\\CaseStudy\\data\\facilityid.cvs";
+    public static final String FILE_BOOKING="D:\\Codegym\\module2\\src\\CaseStudy\\data\\booking.cvs";
+    public static final String FILE_CONTRACT="D:\\Codegym\\module2\\src\\CaseStudy\\data\\contract.cvs";
+    public static final String FILE_VOUCHER="D:\\Codegym\\module2\\src\\CaseStudy\\data\\voucher.cvs";
 
     public static void writeToFile(String path, List<? extends Person> listObject) {
         try {

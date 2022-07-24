@@ -28,19 +28,19 @@ public class FacilityServiceImpl implements FacilityService {
                 if(facility instanceof Villa)
                 {
                     Villa villa=(Villa) facility;
-                    System.out.println(villa.toString());
+                    System.out.println(villa.toInfomation());
                 }
                 else
                 if(facility instanceof House)
                 {
                     House house=(House) facility;
-                    System.out.println(house.toString());
+                    System.out.println(house.toInfomation());
                 }
                 else
                 if(facility instanceof Room)
                 {
                     Room room=(Room) facility;
-                    System.out.println(room.toString());;
+                    System.out.println(room.toInfomation());;
                 }
 
             }
@@ -58,18 +58,18 @@ public class FacilityServiceImpl implements FacilityService {
             if(facility instanceof Villa)
             {
                 mapVilla.put((Villa) facility,0);
-                WriteReadFile.writeToFileFacility("D:\\Codegym\\module2\\src\\CaseStudy\\data\\villa.cvs",mapVilla);
+                WriteReadFile.writeToFileFacility(WriteReadFile.FILE_VILLA,mapVilla);
             }
             else
             if(facility instanceof House)
             {
                 mapHouse.put((House)facility,0);
-                WriteReadFile.writeToFileFacility("D:\\Codegym\\module2\\src\\CaseStudy\\data\\house.cvs",mapHouse);
+                WriteReadFile.writeToFileFacility(WriteReadFile.FILE_HOUSE,mapHouse);
             }
             else
             {
                 mapRoom.put((Room)facility,0);
-                WriteReadFile.writeToFileFacility("D:\\Codegym\\module2\\src\\CaseStudy\\data\\room.cvs",mapRoom);
+                WriteReadFile.writeToFileFacility(WriteReadFile.FILE_ROOM,mapRoom);
             }
             System.out.println("More success!");
         }
@@ -85,17 +85,17 @@ public class FacilityServiceImpl implements FacilityService {
         if(mapVilla.size()!=0 || mapHouse.size()!=0 || mapRoom.size()!=0) {
             for (Map.Entry<Villa,Integer> villaIntegerEntry:mapVilla.entrySet())
             {
-                System.out.println(villaIntegerEntry.getKey().toString()+", Number of uses: "+villaIntegerEntry.getValue());
+                System.out.println(villaIntegerEntry.getKey().toInfomation()+", Number of uses: "+villaIntegerEntry.getValue());
             }
 
             for (Map.Entry<House,Integer> houseIntegerEntry:mapHouse.entrySet())
             {
-                System.out.println(houseIntegerEntry.getKey().toString()+", Number of uses: "+houseIntegerEntry.getValue());
+                System.out.println(houseIntegerEntry.getKey().toInfomation()+", Number of uses: "+houseIntegerEntry.getValue());
             }
 
             for (Map.Entry<Room,Integer> roomIntegerEntry:mapRoom.entrySet())
             {
-                System.out.println(roomIntegerEntry.getKey().toString()+", Number of uses: "+roomIntegerEntry.getValue());
+                System.out.println(roomIntegerEntry.getKey().toInfomation()+", Number of uses: "+roomIntegerEntry.getValue());
             }
         }
         else
@@ -110,7 +110,7 @@ public class FacilityServiceImpl implements FacilityService {
         if(tenDichvu.equalsIgnoreCase("Villa")) {
             for (Map.Entry<Villa,Integer> villaIntegerEntry:mapVilla.entrySet())
             {
-                System.out.println(villaIntegerEntry.getKey().toString()+", Number of uses: "+villaIntegerEntry.getValue());
+                System.out.println(villaIntegerEntry.getKey().toInfomation()+", Number of uses: "+villaIntegerEntry.getValue());
             }
         }
         else
@@ -118,7 +118,7 @@ public class FacilityServiceImpl implements FacilityService {
             {
                 for (Map.Entry<House,Integer> houseIntegerEntry:mapHouse.entrySet())
                 {
-                    System.out.println(houseIntegerEntry.getKey().toString()+", Number of uses: "+houseIntegerEntry.getValue());
+                    System.out.println(houseIntegerEntry.getKey().toInfomation()+", Number of uses: "+houseIntegerEntry.getValue());
                 }
             }
             else
@@ -126,7 +126,7 @@ public class FacilityServiceImpl implements FacilityService {
                 {
                     for (Map.Entry<Room,Integer> roomIntegerEntry:mapRoom.entrySet())
                     {
-                        System.out.println(roomIntegerEntry.getKey().toString()+", Number of uses: "+roomIntegerEntry.getValue());
+                        System.out.println(roomIntegerEntry.getKey().toInfomation()+", Number of uses: "+roomIntegerEntry.getValue());
                     }
                 }
         else
@@ -316,7 +316,7 @@ public class FacilityServiceImpl implements FacilityService {
             }
             else
                 mapVilla.put(villa,++value);
-            WriteReadFile.writeToFileFacility("D:\\Codegym\\module2\\src\\CaseStudy\\data\\villa.cvs",mapVilla);
+            WriteReadFile.writeToFileFacility(WriteReadFile.FILE_VILLA,mapVilla);
         }
         else
         if(facility instanceof House)
@@ -330,7 +330,7 @@ public class FacilityServiceImpl implements FacilityService {
             }
             else
                 mapHouse.put(house,++value);
-            WriteReadFile.writeToFileFacility("D:\\Codegym\\module2\\src\\CaseStudy\\data\\house.cvs",mapHouse);
+            WriteReadFile.writeToFileFacility(WriteReadFile.FILE_HOUSE,mapHouse);
         }
         else
             if(facility instanceof Room)
@@ -344,9 +344,9 @@ public class FacilityServiceImpl implements FacilityService {
                 }
                 else
                     mapRoom.put(room,++value);
-                WriteReadFile.writeToFileFacility("D:\\Codegym\\module2\\src\\CaseStudy\\data\\room.cvs",mapRoom);
+                WriteReadFile.writeToFileFacility(WriteReadFile.FILE_ROOM,mapRoom);
             }
-            WriteReadFile.writeToFile("D:\\Codegym\\module2\\src\\CaseStudy\\data\\facilityid.cvs",mapMainteID);
+            WriteReadFile.writeToFile(WriteReadFile.FILE_FACILITYMAINTEDID,mapMainteID);
     }
 
     public static int getValue(Facility facility)

@@ -52,6 +52,14 @@ public class Villa extends Facility {
         this.numberOfFloors = numberOfFloors;
     }
 
+    public String toInfomation()
+    {
+        return   "ID:"+facilityID+", Facility:"+facilityName+", Swimming area:"+swimPoolArea
+                + ", Number of floors:"+numberOfFloors+", Villa standard:"+villaStandard+", Usable area:"+usableArea
+                +", Rentalc costs:"+rentalCosts+", Max person:" +numberMaxPerson
+                + ", Rental type:"+rentalType;
+    }
+
     @Override
     public String toString() {
         return  facilityID +

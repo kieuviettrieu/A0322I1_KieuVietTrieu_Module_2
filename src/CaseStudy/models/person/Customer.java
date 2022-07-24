@@ -65,14 +65,14 @@ public class Customer extends Person {
 
     public String toInfomation()
     {
-        return  "maKhachHang:" + customerCode +
-                ", loaiKhach:" + typeOfGuest +
-                ", diaChi:" + address +
-                ", hoTen:" + fullName +
-                ", ngaysinh:" + birthDay +
-                ", gioiTinh:" + gender +
-                ", soDienThoai:" + phoneNumber +
-                ", email:" + email +
-                ", soCCCD:" + numberCCCD;
+        return  "ID:" + customerCode +
+                ", Type:" + typeOfGuest +
+                ", Address:" + address +
+                ", Full name:" + fullName +
+                ", Birthday:" + birthDay +
+                ", Gender:" + gender +
+                ", Phone number:" + phoneNumber +
+                ", Email:" + email +
+                ", CCCD:" + numberCCCD;
     }
 }
