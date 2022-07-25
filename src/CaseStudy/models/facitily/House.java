@@ -45,13 +45,13 @@ public class House extends Facility {
     @Override
     public String toString() {
         return  facilityID +
-                ";" + facilityName +
-                ";" + numberOfFloors +
-                ";" + houseStandard +
-                ";" + usableArea +
-                ";" + rentalCosts +
-                ";" + numberMaxPerson +
-                ";" + rentalType;
+                "," + facilityName +
+                "," + numberOfFloors +
+                "," + houseStandard +
+                "," + usableArea +
+                "," + rentalCosts +
+                "," + numberMaxPerson +
+                "," + rentalType;
     }
 
     public String toInfomation()

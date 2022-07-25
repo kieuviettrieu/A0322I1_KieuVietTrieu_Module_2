@@ -66,10 +66,10 @@ public class Contract implements Comparable<Contract>{
     @Override
     public String toString() {
         return  contractCode +
-                ";" + bookingCode +
-                ";" + deposit +
-                ";" + payments +
-                ";" + customerCode;
+                "," + bookingCode +
+                "," + deposit +
+                "," + payments +
+                "," + customerCode;
     }
 
     public String toInfomation()

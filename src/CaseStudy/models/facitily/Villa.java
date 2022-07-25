@@ -63,13 +63,13 @@ public class Villa extends Facility {
     @Override
     public String toString() {
         return  facilityID +
-                ";" + facilityName +
-                ";" + swimPoolArea +
-                ";" + numberOfFloors +
-                ";" + villaStandard +
-                ";" + usableArea +
-                ";" + rentalCosts +
-                ";" + numberMaxPerson +
-                ";" + rentalType;
+                "," + facilityName +
+                "," + swimPoolArea +
+                "," + numberOfFloors +
+                "," + villaStandard +
+                "," + usableArea +
+                "," + rentalCosts +
+                "," + numberMaxPerson +
+                "," + rentalType;
     }
 }

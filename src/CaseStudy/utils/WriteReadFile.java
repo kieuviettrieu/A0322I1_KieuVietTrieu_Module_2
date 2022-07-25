@@ -14,15 +14,15 @@ import java.text.ParseException;
 import java.util.*;
 
 public class WriteReadFile {
-    public static final String FILE_EMPLOYEE="D:\\Codegym\\module2\\src\\CaseStudy\\data\\employee.cvs";
-    public static final String FILE_CUSTOMER="D:\\Codegym\\module2\\src\\CaseStudy\\data\\customer.cvs";
-    public static final String FILE_VILLA="D:\\Codegym\\module2\\src\\CaseStudy\\data\\villa.cvs";
-    public static final String FILE_HOUSE="D:\\Codegym\\module2\\src\\CaseStudy\\data\\house.cvs";
-    public static final String FILE_ROOM="D:\\Codegym\\module2\\src\\CaseStudy\\data\\room.cvs";
-    public static final String FILE_FACILITYMAINTEDID="D:\\Codegym\\module2\\src\\CaseStudy\\data\\facilityid.cvs";
-    public static final String FILE_BOOKING="D:\\Codegym\\module2\\src\\CaseStudy\\data\\booking.cvs";
-    public static final String FILE_CONTRACT="D:\\Codegym\\module2\\src\\CaseStudy\\data\\contract.cvs";
-    public static final String FILE_VOUCHER="D:\\Codegym\\module2\\src\\CaseStudy\\data\\voucher.cvs";
+    public static final String FILE_EMPLOYEE="D:\\Codegym\\module2\\src\\CaseStudy\\data\\employee.csv";
+    public static final String FILE_CUSTOMER="D:\\Codegym\\module2\\src\\CaseStudy\\data\\customer.csv";
+    public static final String FILE_VILLA="D:\\Codegym\\module2\\src\\CaseStudy\\data\\villa.csv";
+    public static final String FILE_HOUSE="D:\\Codegym\\module2\\src\\CaseStudy\\data\\house.csv";
+    public static final String FILE_ROOM="D:\\Codegym\\module2\\src\\CaseStudy\\data\\room.csv";
+    public static final String FILE_FACILITYMAINTEDID="D:\\Codegym\\module2\\src\\CaseStudy\\data\\facilityid.csv";
+    public static final String FILE_BOOKING="D:\\Codegym\\module2\\src\\CaseStudy\\data\\booking.csv";
+    public static final String FILE_CONTRACT="D:\\Codegym\\module2\\src\\CaseStudy\\data\\contract.csv";
+    public static final String FILE_VOUCHER="D:\\Codegym\\module2\\src\\CaseStudy\\data\\voucher.csv";
 
     public static void writeToFile(String path, List<? extends Person> listObject) {
         try {
@@ -60,7 +60,7 @@ public class WriteReadFile {
             BufferedWriter br = new BufferedWriter(fr);
             for (Map.Entry<Integer,Integer> entry:map.entrySet())
             {
-                br.write(entry.getKey()+";"+entry.getValue());
+                br.write(entry.getKey()+","+entry.getValue());
                 br.newLine();
             }
             br.close();
@@ -124,7 +124,7 @@ public class WriteReadFile {
             String line = "";
             list.clear();
             while ((line = br.readLine()) != null) {
-                String[] strings = line.split(";");
+                String[] strings = line.split(",");
                 int id=Integer.parseInt(strings[0]);
                 String trinhDo=strings[1];
                 String viTri=strings[2];
@@ -152,7 +152,7 @@ public class WriteReadFile {
             String line = "";
             list.clear();
             while ((line = br.readLine()) != null) {
-                String[] strings = line.split(";");
+                String[] strings = line.split(",");
                 int id=Integer.parseInt(strings[0]);
                 String loaiKhach=strings[1];
                 String diaChi=strings[2];
@@ -180,7 +180,7 @@ public class WriteReadFile {
             String line = "";
             map.clear();
             while ((line = br.readLine()) != null) {
-                String[] strings = line.split(";");
+                String[] strings = line.split(",");
                 String idDichVu=strings[0];
                 int id= Integer.parseInt(strings[0].substring(5,9));
                 String tenDichVu=strings[1];
@@ -212,7 +212,7 @@ public class WriteReadFile {
             String line = "";
             map.clear();
             while ((line = br.readLine()) != null) {
-                String[] strings = line.split(";");
+                String[] strings = line.split(",");
                 String idDichVu=strings[0];
                 int id= Integer.parseInt(strings[0].substring(5,9));
                 String tenDichVu=strings[1];
@@ -244,7 +244,7 @@ public class WriteReadFile {
             String line = "";
             map.clear();
             while ((line = br.readLine()) != null) {
-                String[] strings = line.split(";");
+                String[] strings = line.split(",");
                 String idDichVu=strings[0];
                 int id= Integer.parseInt(strings[0].substring(5,9));
                 String tenDichVu=strings[1];
@@ -275,7 +275,7 @@ public class WriteReadFile {
             String line = "";
             list.clear();
             while ((line = br.readLine()) != null) {
-                String[] strings = line.split(";");
+                String[] strings = line.split(",");
                 int maBooking= Integer.parseInt(strings[0]);
                 Date firtDate=DateException.simpleDateFormat.parse(strings[1]);
                 Date lastDate=DateException.simpleDateFormat.parse(strings[2]);
@@ -299,7 +299,7 @@ public class WriteReadFile {
             String line = "";
             list.clear();
             while ((line = br.readLine()) != null) {
-                String[] strings = line.split(";");
+                String[] strings = line.split(",");
                 int soHopDong=Integer.parseInt(strings[0]);
                 int maBooking=Integer.parseInt(strings[1]);
                 double tienCoc=Double.parseDouble(strings[2]);
@@ -338,7 +338,7 @@ public class WriteReadFile {
             String line = "";
             map.clear();
             while ((line = br.readLine()) != null) {
-                String[] strings=line.split(";");
+                String[] strings=line.split(",");
                 int id= Integer.parseInt(strings[0]);
                 int voucher=Integer.parseInt(strings[1]);
                 map.put(id,voucher);

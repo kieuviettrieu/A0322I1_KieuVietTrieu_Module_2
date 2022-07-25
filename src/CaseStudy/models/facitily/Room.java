@@ -31,12 +31,12 @@ public class Room extends Facility {
     @Override
     public String toString() {
         return  facilityID +
-                ";" + facilityName +
-                ";" + usableArea +
-                ";" + rentalCosts +
-                ";" + numberMaxPerson +
-                ";" + rentalType +
-                ";" + serviceFree;
+                "," + facilityName +
+                "," + usableArea +
+                "," + rentalCosts +
+                "," + numberMaxPerson +
+                "," + rentalType +
+                "," + serviceFree;
     }
 
     public String toInfomation()

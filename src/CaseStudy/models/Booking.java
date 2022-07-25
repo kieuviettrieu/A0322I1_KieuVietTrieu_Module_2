@@ -90,11 +90,11 @@ public class Booking implements Comparable<Booking>{
     @Override
     public String toString() {
         return  bookingCode +
-                ";" + DateException.simpleDateFormat.format(firstDate) +
-                ";" + DateException.simpleDateFormat.format(lastDate) +
-                ";" + customerCode +
-                ";" + facilityName +
-                ";" + facilityType;
+                "," + DateException.simpleDateFormat.format(firstDate) +
+                "," + DateException.simpleDateFormat.format(lastDate) +
+                "," + customerCode +
+                "," + facilityName +
+                "," + facilityType;
     }
 
     public String toInfomation()
