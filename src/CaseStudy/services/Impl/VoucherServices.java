@@ -40,25 +40,29 @@ public class VoucherServices {
 
     public static void addToVoucher(int maKhachHang)
     {
+        Integer voucher;
         if(CustomerServiceImpl.getSize()<=AMOUNT_VOUCHER_50)
         {
             mapVoucher.put(maKhachHang,VOUCHER_50);
+            voucher=VOUCHER_50;
         }
         else
             if(CustomerServiceImpl.getSize()<=(AMOUNT_VOUCHER_20+AMOUNT_VOUCHER_50))
             {
                 mapVoucher.put(maKhachHang,VOUCHER_20);
+                voucher=VOUCHER_20;
             }
             else
             {
+                voucher=10;
                 mapVoucher.put(maKhachHang,10);
             }
-        writeToVoucher(WriteReadFile.FILE_VOUCHER);
+        writeToVoucher(WriteReadFile.FILE_VOUCHER,maKhachHang,voucher);
     }
 
-    public static void writeToVoucher(String path)
+    public static void writeToVoucher(String path,Integer maKhachHang,Integer voucher)
     {
-        WriteReadFile.writeToFile(path,mapVoucher);
+        WriteReadFile.writeToFile(path,maKhachHang,voucher);
     }
 
     public static void readToVoucher(String path)

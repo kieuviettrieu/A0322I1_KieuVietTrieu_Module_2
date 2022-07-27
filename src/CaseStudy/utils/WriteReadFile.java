@@ -39,6 +39,32 @@ public class WriteReadFile {
         }
     }
 
+    public static void writeToFile(String path, Customer customer) {
+        try {
+            FileWriter fr = new FileWriter(path,true);
+            BufferedWriter br = new BufferedWriter(fr);
+            br.write(customer.toString());
+            br.newLine();
+            br.close();
+            fr.close();
+        } catch (IOException e) {
+            System.out.println("File recording failed!");
+        }
+    }
+
+    public static void writeToFile(String path, Employee employee) {
+        try {
+            FileWriter fr = new FileWriter(path,true);
+            BufferedWriter br = new BufferedWriter(fr);
+            br.write(employee.toString());
+            br.newLine();
+            br.close();
+            fr.close();
+        } catch (IOException e) {
+            System.out.println("File recording failed!");
+        }
+    }
+
     public static void writeToFile(String path,Set<String> set) {
         try {
             FileWriter fr = new FileWriter(path);
@@ -47,6 +73,19 @@ public class WriteReadFile {
                 br.write(string);
                 br.newLine();
             }
+            br.close();
+            fr.close();
+        } catch (IOException e) {
+            System.out.println("File recording failed!");
+        }
+    }
+
+    public static void writeToFile(String path,String string) {
+        try {
+            FileWriter fr = new FileWriter(path,true);
+            BufferedWriter br = new BufferedWriter(fr);
+            br.write(string);
+            br.newLine();
             br.close();
             fr.close();
         } catch (IOException e) {
@@ -70,6 +109,18 @@ public class WriteReadFile {
         }
     }
 
+    public static void writeToFile(String path,Integer maKhachHang,Integer voucher) {
+        try {
+            FileWriter fr = new FileWriter(path,true);
+            BufferedWriter br = new BufferedWriter(fr);
+            br.write(maKhachHang+","+voucher);
+            br.newLine();
+            br.close();
+            fr.close();
+        } catch (IOException e) {
+            System.out.println("File recording failed!");
+        }
+    }
 
 
     public static void writeToBooking(String path, TreeSet<Booking> listObject) {
@@ -87,6 +138,20 @@ public class WriteReadFile {
         }
     }
 
+    public static void writeToBooking(String path,Booking booking) {
+        try {
+            FileWriter fr = new FileWriter(path,true);
+            BufferedWriter br = new BufferedWriter(fr);
+            br.write(booking.toString());
+            br.newLine();
+            br.close();
+            fr.close();
+        } catch (IOException e) {
+            System.out.println("File recording failed!");
+        }
+    }
+
+
     public static void writeToContract(String path, TreeSet<Contract> listObject) {
         try {
             FileWriter fr = new FileWriter(path);
@@ -95,6 +160,19 @@ public class WriteReadFile {
                 br.write(contract.toString());
                 br.newLine();
             }
+            br.close();
+            fr.close();
+        } catch (IOException e) {
+            System.out.println("File recording failed!");
+        }
+    }
+
+    public static void writeToContract(String path,Contract contract) {
+        try {
+            FileWriter fr = new FileWriter(path,true);
+            BufferedWriter br = new BufferedWriter(fr);
+            br.write(contract.toString());
+            br.newLine();
             br.close();
             fr.close();
         } catch (IOException e) {

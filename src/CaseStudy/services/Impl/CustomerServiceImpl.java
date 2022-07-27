@@ -104,6 +104,12 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.print("CCCD: ");
                 String cccd=scanner.nextLine();
                 arrayCustomer.set(index,new Customer(id,fullname,birthDay,set,phonenumber,email,cccd,loaiKhach,address));
+                Collections.sort(arrayCustomer, new Comparator<Customer>() {
+                    @Override
+                    public int compare(Customer o1, Customer o2) {
+                        return o1.getFullName().compareTo(o2.getFullName());
+                    }
+                });
                 WriteReadFile.writeToFile(WriteReadFile.FILE_CUSTOMER,arrayCustomer);
                 System.out.println("Update successful!");
             }
@@ -146,19 +152,20 @@ public class CustomerServiceImpl implements CustomerService {
         {
             arrayCustomer.add(customer);
             VoucherServices.addToVoucher(customer.getCustomerCode());
+            Collections.sort(arrayCustomer, new Comparator<Customer>() {
+                @Override
+                public int compare(Customer o1, Customer o2) {
+                    return o1.getFullName().compareTo(o2.getFullName());
+                }
+            });
+            WriteReadFile.writeToFile(WriteReadFile.FILE_CUSTOMER,customer);
             System.out.println("More success!");
         }
         else
         {
             System.out.println("Unsuccessful!");
         }
-        Collections.sort(arrayCustomer, new Comparator<Customer>() {
-            @Override
-            public int compare(Customer o1, Customer o2) {
-                return o1.getFullName().compareTo(o2.getFullName());
-            }
-        });
-        WriteReadFile.writeToFile(WriteReadFile.FILE_CUSTOMER,arrayCustomer);
+
     }
 
     @Override
@@ -280,5 +287,11 @@ public class CustomerServiceImpl implements CustomerService {
     public static void readArrayCostomer(String path)
     {
         WriteReadFile.readDataFromFileCus(path,arrayCustomer);
+        Collections.sort(arrayCustomer, new Comparator<Customer>() {
+            @Override
+            public int compare(Customer o1, Customer o2) {
+                return o1.getFullName().compareTo(o2.getFullName());
+            }
+        });
     }
 }

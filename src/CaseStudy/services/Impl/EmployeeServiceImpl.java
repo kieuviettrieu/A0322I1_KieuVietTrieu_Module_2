@@ -124,6 +124,12 @@ public class EmployeeServiceImpl implements EmployeeService {
                 System.out.print("CCCD: ");
                 String cccd=scanner.nextLine();
                 arrayEmployee.set(index,new Employee(fullname,birthDay,set,phonenumber,email,cccd,id,level,location,wage));
+                Collections.sort(arrayEmployee, new Comparator<Employee>() {
+                    @Override
+                    public int compare(Employee o1, Employee o2) {
+                        return o1.getFullName().compareTo(o2.getFullName());
+                    }
+                });
                 WriteReadFile.writeToFile(WriteReadFile.FILE_EMPLOYEE,arrayEmployee);
                 System.out.println("Update successful!");
             }
@@ -142,19 +148,20 @@ public class EmployeeServiceImpl implements EmployeeService {
         if(employee!=null)
         {
             arrayEmployee.add(employee);
+            Collections.sort(arrayEmployee, new Comparator<Employee>() {
+                @Override
+                public int compare(Employee o1, Employee o2) {
+                    return o1.getFullName().compareTo(o2.getFullName());
+                }
+            });
+            WriteReadFile.writeToFile(WriteReadFile.FILE_EMPLOYEE,employee);
             System.out.println("More success!");
         }
         else
         {
             System.out.println("Unsuccessful!");
         }
-        Collections.sort(arrayEmployee, new Comparator<Employee>() {
-            @Override
-            public int compare(Employee o1, Employee o2) {
-                return o1.getFullName().compareTo(o2.getFullName());
-            }
-        });
-        WriteReadFile.writeToFile(WriteReadFile.FILE_EMPLOYEE,arrayEmployee);
+
     }
 
     @Override
@@ -305,5 +312,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     public static void readArrayEmployee(String path)
     {
         WriteReadFile.readDataFromFileEmp(path,arrayEmployee);
+        Collections.sort(arrayEmployee, new Comparator<Employee>() {
+            @Override
+            public int compare(Employee o1, Employee o2) {
+                return o1.getFullName().compareTo(o2.getFullName());
+            }
+        });
     }
 }

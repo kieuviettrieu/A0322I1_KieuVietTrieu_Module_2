@@ -26,7 +26,7 @@ public class BookingServiceImpl implements BookingService {
         {
             arrayBooking.add(booking);
             FacilityServiceImpl.increaseValue(FacilityServiceImpl.searchFacility(booking.getFacilityType()));
-            WriteReadFile.writeToBooking(WriteReadFile.FILE_BOOKING,arrayBooking);
+            WriteReadFile.writeToBooking(WriteReadFile.FILE_BOOKING,booking);
             System.out.println("More success!");
         }
         else
@@ -41,7 +41,7 @@ public class BookingServiceImpl implements BookingService {
         {
             System.out.println("Contract created: "+contract);
             arrayContract.add(contract);
-            WriteReadFile.writeToContract(WriteReadFile.FILE_CONTRACT,arrayContract);
+            WriteReadFile.writeToContract(WriteReadFile.FILE_CONTRACT,contract);
             System.out.println("More success!");
         }
         else
