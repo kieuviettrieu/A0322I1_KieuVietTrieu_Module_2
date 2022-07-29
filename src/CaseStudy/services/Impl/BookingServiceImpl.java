@@ -39,7 +39,7 @@ public class BookingServiceImpl implements BookingService {
     public void createNewConstracts(Contract contract) {
         if(contract!=null)
         {
-            System.out.println("Contract created: "+contract);
+            System.out.println("Contract created: "+contract.toInfomation());
             arrayContract.add(contract);
             WriteReadFile.writeToContract(WriteReadFile.FILE_CONTRACT,contract);
             System.out.println("More success!");
