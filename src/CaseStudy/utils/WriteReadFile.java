@@ -185,7 +185,7 @@ public class WriteReadFile {
             FileWriter fr = new FileWriter(path);
             BufferedWriter br = new BufferedWriter(fr);
             for (Map.Entry<? extends Facility,Integer> entry:listObject.entrySet()) {
-                br.write(entry.getKey().toString()+";"+entry.getValue());
+                br.write(entry.getKey().toString()+","+entry.getValue());
                 br.newLine();
             }
             br.close();
@@ -239,7 +239,9 @@ public class WriteReadFile {
                 String set=strings[5];
                 String sdt=strings[6];
                 String email=strings[7];
-                String cccd=strings[8];
+                String cccd=strings
+
+                        [8];
                 Customer customer=new Customer(id,hoten,ngaySinh,set,sdt,email,cccd,loaiKhach,diaChi);
                 list.add(customer);
             }

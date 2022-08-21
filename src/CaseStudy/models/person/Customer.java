@@ -53,14 +53,14 @@ public class Customer extends Person {
     @Override
     public String toString() {
         return customerCode +
-                ";" + typeOfGuest +
-                ";" + address +
-                ";" + fullName +
-                ";" + DateException.simpleDateFormat.format(birthDay) +
-                ";" + gender +
-                ";" + phoneNumber +
-                ";" + email +
-                ";" + numberCCCD;
+                "," + typeOfGuest +
+                "," + address +
+                "," + fullName +
+                "," + DateException.simpleDateFormat.format(birthDay) +
+                "," + gender +
+                "," + phoneNumber +
+                "," + email +
+                "," + numberCCCD;
     }
 
     public String toInfomation()

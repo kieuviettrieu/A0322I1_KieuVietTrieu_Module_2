@@ -71,14 +71,14 @@ public class Employee extends Person {
     @Override
     public String toString() {
         return  employeeCode +
-                ";" + level +
-                ";" + location +
-                ";" + wage +
-                ";" + fullName +
-                ";" + DateException.simpleDateFormat.format(birthDay) +
-                ";" + gender +
-                ";" + phoneNumber +
-                ";" + email +
-                ";" + numberCCCD;
+                "," + level +
+                "," + location +
+                "," + wage +
+                "," + fullName +
+                "," + DateException.simpleDateFormat.format(birthDay) +
+                "," + gender +
+                "," + phoneNumber +
+                "," + email +
+                "," + numberCCCD;
     }
 }
